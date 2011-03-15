@@ -60,6 +60,7 @@
     <None Include="product\config\app.config.erb" />
     <None Include="product\config\hibernate.cfg.xml.erb" />
     <None Include="product\config\log4net.config.xml.erb" />
+    <None Include="product\config\our_custom_config.txt.erb" />
     <None Include="product\sql\ddl\001\001_db.sql.erb" />
     <None Include="product\sql\ddl\001\002_security.sql.erb" />
     <None Include="product\sql\ddl\001\003_asp_login.sql.erb" />
@@ -97,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="product\docs\project_conventions.txt" />
     <Content Include="product\sql\ddl\001\001_db.sql" />
     <Content Include="product\sql\ddl\001\002_security.sql" />
     <Content Include="product\sql\ddl\001\003_asp_login.sql" />
