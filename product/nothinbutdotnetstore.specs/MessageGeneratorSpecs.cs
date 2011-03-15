@@ -24,4 +24,25 @@ namespace nothinbutdotnetstore.specs
                 
         }
     }
+
+    [Subject(typeof(Calculator))]
+    public class CalculatorSpecs
+    {
+
+        public abstract class concern: Observes
+        {
+        }
+
+        //context
+        //context specifation style testing 
+        // BDD.. same thing with slight difference...
+        public class when_adding_two_numbers: concern
+        {
+            private Because b = () => result = Calculator.Add(2, 3);
+            It should_return_the_sum_of_two_numbers = () => 
+                result.ShouldEqual(5);
+
+            static int result;
+        }
+    }
 }
