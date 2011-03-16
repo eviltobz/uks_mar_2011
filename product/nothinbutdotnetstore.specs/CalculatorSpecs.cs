@@ -14,6 +14,7 @@ namespace nothinbutdotnetstore.specs
     {
         public abstract class concern : Observes<Calculator,DefaultCalculator>
         {
+
             Establish c = () =>
             {
                provide_a_basic_sut_constructor_argument(2); 
