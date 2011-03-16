@@ -1,6 +1,7 @@
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
+using developwithpassion.specifications.extensions;
 
 namespace nothinbutdotnetstore.specs
 {
@@ -28,6 +29,25 @@ namespace nothinbutdotnetstore.specs
 
             static bool result;
             static Request request;
+        }
+
+        [Subject(typeof(DefaultRequestCommand))]
+        public class when_processing_a_request : concern
+        {
+            Establish c = () =>
+            {
+                application_behaviour = the_dependency<ApplicationBehaviour>();
+                request = an<Request>();
+            };
+
+            Because b = () =>
+                sut.process(request);
+
+            It should_delegate_the_processing_to_the_application_specific_behaviour = () =>
+                application_behaviour.received(x => x.process(request));
+
+            static Request request;
+            static ApplicationBehaviour application_behaviour;
         }
     }
 }
