@@ -26,7 +26,7 @@ namespace nothinbutdotnetstore.specs
                 department_repository.setup(x => x.get_all_departments()).
                     Return(the_list_of_departments);
 
-                rendering_gateway =
+                rendering_gateway = the_dependency<RenderingGateway>();
 
             };
 
@@ -48,7 +48,13 @@ namespace nothinbutdotnetstore.specs
             static Request request;
             static DepartmentRepository department_repository;
             static string[] the_list_of_departments;
+            static RenderingGateway rendering_gateway;
         }
+    }
+
+    interface RenderingGateway
+    {
+        object render_response_for(Request request);
     }
 
     interface DepartmentRepository
