@@ -77,6 +77,24 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
+    <Compile Include="web\application\model\Department.cs" />
+    <Compile Include="web\application\model\Product.cs" />
+    <Compile Include="web\application\StoreCatalog.cs" />
+    <Compile Include="web\application\stubs\StubStoreCatalog.cs" />
+    <Compile Include="web\core\ApplicationBehaviour.cs" />
+    <Compile Include="web\core\aspnet\BasicViewFor.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\core\aspnet\CurrentContextResolver.cs" />
+    <Compile Include="web\core\aspnet\DefaultWebFormViewFactory.cs" />
+    <Compile Include="web\core\aspnet\PageFactory.cs" />
+    <Compile Include="web\core\aspnet\PathResolver .cs" />
+    <Compile Include="web\core\aspnet\ViewFor.cs" />
+    <Compile Include="web\core\aspnet\WebFormRenderer.cs" />
+    <Compile Include="web\core\aspnet\WebFormViewFactory.cs" />
     <Compile Include="web\core\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
@@ -84,10 +102,16 @@
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
+    <Compile Include="web\core\RenderingGateway.cs" />
     <Compile Include="web\core\Request .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestCriteria.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
+    <Compile Include="web\core\stubs\Stub.cs" />
+    <Compile Include="web\core\stubs\StubMissingCommandFactory.cs" />
+    <Compile Include="web\core\stubs\StubPathResolver.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
