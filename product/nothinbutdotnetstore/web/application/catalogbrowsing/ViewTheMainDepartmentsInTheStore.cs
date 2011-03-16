@@ -9,7 +9,7 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         RenderingGateway rendering_gateway;
         DepartmentRepository department_repository;
 
-        public ViewTheMainDepartmentsInTheStore() : this(Stub.with<StubRenderingGateway>(),//.until("201103161545"),
+        public ViewTheMainDepartmentsInTheStore() : this(Stub.with<StubRenderingGateway>(),
                                                          Stub.with<StubDepartmentsRepository>())
         {
         }

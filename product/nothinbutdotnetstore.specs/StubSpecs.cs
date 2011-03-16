@@ -1,9 +1,5 @@
- 
-using Machine.Specifications;
 using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
-using nothinbutdotnetstore.web.application.catalogbrowsing;
-using nothinbutdotnetstore.web.application.stubs;
+using Machine.Specifications;
 using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.specs
@@ -12,7 +8,6 @@ namespace nothinbutdotnetstore.specs
     {
         public abstract class concern : Observes
         {
-
         }
 
         [Subject(typeof(Stub))]
@@ -26,6 +21,4 @@ namespace nothinbutdotnetstore.specs
             }
         }
     }
-
-    
 }
