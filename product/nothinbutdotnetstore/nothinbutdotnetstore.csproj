@@ -78,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\DepartmentRepository.cs" />
+    <Compile Include="web\application\model\Department.cs" />
+    <Compile Include="web\application\stubs\StubDepartmentsRepository.cs" />
     <Compile Include="web\core\ApplicationBehaviour.cs" />
     <Compile Include="web\core\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
@@ -86,10 +89,15 @@
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
+    <Compile Include="web\core\RenderingGateway.cs" />
     <Compile Include="web\core\Request .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestCriteria.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
+    <Compile Include="web\core\stubs\StubMissingCommandFactory.cs" />
+    <Compile Include="web\core\stubs\StubRenderingGateway.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
