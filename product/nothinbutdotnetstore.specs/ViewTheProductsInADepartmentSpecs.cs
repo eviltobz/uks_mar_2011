@@ -36,10 +36,6 @@ namespace nothinbutdotnetstore.specs
             Because b = () =>
                 sut.process(request);
 
-            It should_get_list_of_products_of_the_from_the_producs_repository = () =>
-            {
-            };
-
             It should_pass_the_list_to_the_result_rendering_gateway = () =>
                 rendering_gateway.received(x => x.render(the_list_of_products));
 
