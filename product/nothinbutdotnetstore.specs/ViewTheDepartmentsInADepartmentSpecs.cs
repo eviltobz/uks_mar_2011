@@ -28,7 +28,7 @@ namespace nothinbutdotnetstore.specs
                 the_list_of_departments = new List<Department> { new Department() };
 
                 var dic = new Dictionary<string, string>();
-                dic.Add("department_name", "your_mum");
+                dic.Add("department_name", department_name);
                 request.setup(x=>x.get_parameters()).Return(dic);
                 department_repository.setup(x => x.get_the_sub_departments(department_name)).
                     Return(the_list_of_departments);
