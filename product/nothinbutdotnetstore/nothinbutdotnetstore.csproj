@@ -77,7 +77,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\core\BasicHandler.cs" />
+    <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\DefaultCommandRegistry.cs" />
+    <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultRequestCommand.cs" />
+    <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\MissingCommandFactory.cs" />
+    <Compile Include="web\core\Request .cs" />
+    <Compile Include="web\core\RequestCommand.cs" />
+    <Compile Include="web\core\RequestCriteria.cs" />
+    <Compile Include="web\core\RequestFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
