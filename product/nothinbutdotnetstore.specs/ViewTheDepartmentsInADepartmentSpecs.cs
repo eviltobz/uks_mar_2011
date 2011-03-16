@@ -26,29 +26,26 @@ namespace nothinbutdotnetstore.specs
                 department_repository = the_dependency<DepartmentRepository>();
 
                 the_list_of_departments = new List<Department> { new Department() };
+                parent_department = new Department();
 
-                var dic = new Dictionary<string, string>();
-                dic.Add("department_name", department_name);
-                request.setup(x=>x.get_parameters()).Return(dic);
-                department_repository.setup(x => x.get_the_sub_departments(department_name)).
+                request.setup(x=>x.map<Department>()).Return(parent_department);
+
+                department_repository.setup(x => x.get_the_departments_in(parent_department)).
                     Return(the_list_of_departments);
             };
 
             Because b = () =>
                 sut.process(request);
 
-            It should_get_list_of_departments_of_the_from_the_departments_repository = () =>
-            {
-            };
 
-            It should_pass_the_list_to_the_result_rendering_gateway = () =>
+            It should_tell_the_rendering_gateway_to_display_the_sub_departments = () =>
                 rendering_gateway.received(x => x.render(the_list_of_departments));
 
-            static string department_name = "your mum";
             static Request request;
             static DepartmentRepository department_repository;
             static IEnumerable<Department> the_list_of_departments;
             static RenderingGateway rendering_gateway;
+            static Department parent_department;
         }
     }
 }

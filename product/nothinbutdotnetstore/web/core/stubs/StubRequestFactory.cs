@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
+using nothinbutdotnetstore.web.application.model;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {
@@ -13,9 +14,11 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         class StubRequest : Request
         {
-            public Dictionary<string, string> get_parameters()
+
+            public InputModel map<InputModel>()
             {
-                throw new NotImplementedException();
+                object item = new Department();
+                return (InputModel) item;
             }
         }
     }
