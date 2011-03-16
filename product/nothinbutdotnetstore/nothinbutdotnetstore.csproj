@@ -77,6 +77,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="web\core\ApplicationBehaviour.cs" />
     <Compile Include="web\core\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
