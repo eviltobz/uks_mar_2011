@@ -14,6 +14,7 @@ namespace nothinbutdotnetstore.specs
         {
         }
 
+        [Subject(typeof(DefaultCommandRegistry))]
         public class when_getting_a_command_to_handle_a_request_and_it_does_not_have_the_command: concern
         {
 
@@ -25,6 +26,7 @@ namespace nothinbutdotnetstore.specs
                 provide_a_basic_sut_constructor_argument<MissingCommandFactory>(() => missing_command);
 
             };
+
             Because b = () =>
                 result = sut.get_the_command_that_can_handle(request);
 
