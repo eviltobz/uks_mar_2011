@@ -18,7 +18,7 @@ CodeFile="ProductBrowser.aspx.cs" MasterPageFile="Store.master" %>
                         <th></th>
                     </tr>
                 </thead>
-                <% foreach (var product in ((IEnumerable<Product>)Context.Items["blah"]))
+                <% foreach (var product in this.report_model)
                    {
 
 %>
