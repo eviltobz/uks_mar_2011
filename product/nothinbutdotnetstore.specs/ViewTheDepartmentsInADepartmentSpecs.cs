@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.specs
             {
                 request = an<Request>();
                 rendering_gateway = the_dependency<RenderingGateway>();
-                department_repository = the_dependency<DepartmentRepository>();
+                department_repository = the_dependency<StoreCatalog>();
 
                 the_list_of_departments = new List<Department> { new Department() };
                 parent_department = new Department();
@@ -42,7 +42,7 @@ namespace nothinbutdotnetstore.specs
                 rendering_gateway.received(x => x.render(the_list_of_departments));
 
             static Request request;
-            static DepartmentRepository department_repository;
+            static StoreCatalog department_repository;
             static IEnumerable<Department> the_list_of_departments;
             static RenderingGateway rendering_gateway;
             static Department parent_department;

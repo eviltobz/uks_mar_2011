@@ -1,19 +1,26 @@
 using System;
+using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.application.model;
+using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
     public class ViewTheProductsInADepartment : ApplicationBehaviour
     {
-        public ViewTheProductsInADepartment(ProductRepository product_repository, RenderingGateway rendering_gateway)
+        RenderingGateway rendering_gateway;
+        StoreCatalog product_repository;
+
+        public ViewTheProductsInADepartment():this(Stub.with<StubStoreCatalog>(),
+            Stub.with<StubRenderingGateway>())
+        {
+        }
+
+        public ViewTheProductsInADepartment(StoreCatalog product_repository, RenderingGateway rendering_gateway)
         {
             this.product_repository = product_repository;
             this.rendering_gateway = rendering_gateway;
         }
-
-        ProductRepository product_repository;
-        RenderingGateway rendering_gateway;
 
         public void process(Request request)
         {

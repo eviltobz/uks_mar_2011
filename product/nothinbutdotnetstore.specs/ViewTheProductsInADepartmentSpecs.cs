@@ -23,13 +23,14 @@ namespace nothinbutdotnetstore.specs
             {
                 request = an<Request>();
                 rendering_gateway = the_dependency<RenderingGateway>();
-                product_repository = the_dependency<ProductRepository>();
+                store_catalog = the_dependency<StoreCatalog>();
 
                 the_list_of_products = new List<Product> { new Product() };
-                department = new Department();
+                department_with_products = new Department();
 
-                request.setup(x => x.map<Department>()).Return(department);
-                product_repository.setup(x => x.get_the_products_in(department)).
+                request.setup(x => x.map<Department>()).Return(department_with_products);
+
+                store_catalog.setup(x => x.get_the_products_in(department_with_products)).
                     Return(the_list_of_products);
             };
 
@@ -41,10 +42,10 @@ namespace nothinbutdotnetstore.specs
 
 
             static Request request;
-            static ProductRepository product_repository;
+            static StoreCatalog store_catalog;
             static IEnumerable<Product> the_list_of_products;
             static RenderingGateway rendering_gateway;
-            static Department department;
+            static Department department_with_products;
         }
     }
 }

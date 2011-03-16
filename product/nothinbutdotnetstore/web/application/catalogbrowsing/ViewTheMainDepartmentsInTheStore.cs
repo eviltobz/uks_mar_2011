@@ -7,15 +7,15 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     public class ViewTheMainDepartmentsInTheStore : ApplicationBehaviour
     {
         RenderingGateway rendering_gateway;
-        DepartmentRepository department_repository;
+        StoreCatalog department_repository;
 
         public ViewTheMainDepartmentsInTheStore() : this(Stub.with<StubRenderingGateway>(),
-                                                         Stub.with<StubDepartmentsRepository>())
+                                                         Stub.with<StubStoreCatalog>())
         {
         }
 
         public ViewTheMainDepartmentsInTheStore(RenderingGateway rendering_gateway,
-                                                DepartmentRepository department_repository)
+                                                StoreCatalog department_repository)
         {
             this.rendering_gateway = rendering_gateway;
             this.department_repository = department_repository;

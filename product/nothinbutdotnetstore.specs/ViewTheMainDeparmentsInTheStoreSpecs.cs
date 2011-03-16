@@ -24,7 +24,7 @@ namespace nothinbutdotnetstore.specs
             {
                 request = an<Request>();
                 rendering_gateway = the_dependency<RenderingGateway>();
-                department_repository = the_dependency<DepartmentRepository>();
+                department_repository = the_dependency<StoreCatalog>();
 
                 the_list_of_departments = new List<Department> {new Department()};
 
@@ -44,7 +44,7 @@ namespace nothinbutdotnetstore.specs
 
 
             static Request request;
-            static DepartmentRepository department_repository;
+            static StoreCatalog department_repository;
             static IEnumerable<Department> the_list_of_departments;
             static RenderingGateway rendering_gateway;
         }

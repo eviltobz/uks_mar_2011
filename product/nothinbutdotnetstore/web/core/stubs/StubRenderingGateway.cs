@@ -7,7 +7,7 @@ namespace nothinbutdotnetstore.web.core.stubs
         public void render<ReportModel>(ReportModel report_model)
         {
             HttpContext.Current.Items.Add("blah", report_model);
-            HttpContext.Current.Server.Transfer("~/views/DepartmentBrowser.aspx");
+            HttpContext.Current.Server.Transfer("~/views/ProductBrowser.aspx");
         }
     }
 }
