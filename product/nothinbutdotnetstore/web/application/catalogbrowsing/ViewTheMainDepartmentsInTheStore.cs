@@ -1,4 +1,3 @@
-using System;
 using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.stubs;
@@ -10,7 +9,7 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         RenderingGateway rendering_gateway;
         DepartmentRepository department_repository;
 
-        public ViewTheMainDepartmentsInTheStore() : this(Stub.with<StubRenderingGateway>().until("201103161545"),
+        public ViewTheMainDepartmentsInTheStore() : this(Stub.with<StubRenderingGateway>(),//.until("201103161545"),
                                                          Stub.with<StubDepartmentsRepository>())
         {
         }
