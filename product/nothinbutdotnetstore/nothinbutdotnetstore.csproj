@@ -83,6 +83,7 @@
     <Compile Include="web\application\DepartmentRepository.cs" />
     <Compile Include="web\application\model\Department.cs" />
     <Compile Include="web\application\model\Product.cs" />
+    <Compile Include="web\application\ProductRepository.cs" />
     <Compile Include="web\application\stubs\StubDepartmentsRepository.cs" />
     <Compile Include="web\core\ApplicationBehaviour.cs" />
     <Compile Include="web\core\BasicHandler.cs" />
