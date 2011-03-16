@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace nothinbutdotnetstore.web.core.stubs
@@ -11,6 +13,10 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         class StubRequest : Request
         {
+            public Dictionary<string, string> get_parameters()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

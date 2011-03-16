@@ -45,7 +45,7 @@ namespace nothinbutdotnetstore.specs
 
             static Request request;
             static DepartmentRepository department_repository;
-            static List<Department> the_list_of_departments;
+            static IEnumerable<Department> the_list_of_departments;
             static RenderingGateway rendering_gateway;
         }
     }

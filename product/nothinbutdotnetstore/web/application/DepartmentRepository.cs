@@ -6,5 +6,6 @@ namespace nothinbutdotnetstore.web.application
     public interface DepartmentRepository
     {
         IEnumerable<Department> get_the_main_departments();
+        IEnumerable<Department> get_the_sub_departments(string department_name);
     }
 }
