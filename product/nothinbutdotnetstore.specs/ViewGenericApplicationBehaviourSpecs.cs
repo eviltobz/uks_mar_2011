@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using developwithpassion.specifications.extensions;
-using Machine.Specifications;
 using developwithpassion.specifications.rhino;
+using Machine.Specifications;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
-using nothinbutdotnetstore.web.application.model;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
@@ -12,32 +12,43 @@ namespace nothinbutdotnetstore.specs
     public class ViewGenericApplicationBehaviourSpecs
     {
         public class concern : Observes<ApplicationBehaviour,
-                                            ViewGenericApplicationBehaviour>
-        {}
+                                   ViewAReportModel<IEnumerable<SomeType>>>
+        {
+        }
 
         public class when_run : concern
         {
-            IEnumerable<SomeType>  vrq = ViewRepositoryQuery<SomeType>(x => x.get_the_products_in(Request.map<SomeType>));
-            //.get_the_main_departments()
-            //.get_the_departments_in(request.map<Department>())
-            private It should_use_a_delegate_on_a_repository = () =>
-                                                                      {
-                                                                          
-                                                                      };
-             
-            private It should_get_a_set_of_data_from_a_repository = () => { };
+            Establish c = () =>
+            {
+                all_numbers = Enumerable.Range(1, 100).Select(x => new SomeType()).ToList();
+                renderer = the_dependency<RenderingGateway>();
+                the_catalog = the_dependency<StoreCatalog>();
+                the_request = an<Request>();
 
-            private It should_pass_the_data_to_the_renderer = () => { };
+                provide_a_basic_sut_constructor_argument<ViewRepositoryQuery<IEnumerable<SomeType>>>((x, y) =>
+                {
+                    x.ShouldEqual(the_catalog);
+                    y.ShouldEqual(the_request);
+                    return all_numbers;
+                });
+            };
 
-            //get_the_products_in(request.map<Department>()
-            private StoreCatalog catalog;
-            
+            Because b = () =>
+                sut.process(the_request);
+
+            It should_tell_the_renderer_to_display_the_information_retrieved_by_the_query = () =>
+                renderer.received(x => x.render(all_numbers));
+
+            static ViewRepositoryQuery<IEnumerable<SomeType>> query;
+            static RenderingGateway renderer;
+            static Request request;
+            static IEnumerable<SomeType> all_numbers;
+            static StoreCatalog the_catalog;
+            static Request the_request;
         }
 
-        private class SomeType{}
-        
-
-        public delegate IEnumerable<SomeType> ViewRepositoryQuery<SomeType>(StoreCatalog catalog);
+        public class SomeType
+        {
+        }
     }
-
 }
