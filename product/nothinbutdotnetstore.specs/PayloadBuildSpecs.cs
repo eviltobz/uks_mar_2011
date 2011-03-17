@@ -33,7 +33,7 @@ namespace nothinbutdotnetstore.specs
 
             It should_store_a_token_into_the_token_store = () =>
             {
-                token_store.received(x => x.add(a_token));
+                token_store.received(x => x.register(a_token));
             };
 
             static PropertyAccessor<ReportModel, PropertyType> accessor;
