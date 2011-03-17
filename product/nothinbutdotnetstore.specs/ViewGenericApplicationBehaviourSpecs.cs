@@ -22,12 +22,10 @@ namespace nothinbutdotnetstore.specs
             {
                 all_numbers = Enumerable.Range(1, 100).Select(x => new SomeType()).ToList();
                 renderer = the_dependency<RenderingGateway>();
-                the_catalog = the_dependency<StoreCatalog>();
                 the_request = an<Request>();
 
-                provide_a_basic_sut_constructor_argument<ViewRepositoryQuery<IEnumerable<SomeType>>>((x, y) =>
+                provide_a_basic_sut_constructor_argument<ViewRepositoryQuery<IEnumerable<SomeType>>>((y) =>
                 {
-                    x.ShouldEqual(the_catalog);
                     y.ShouldEqual(the_request);
                     return all_numbers;
                 });
@@ -39,11 +37,8 @@ namespace nothinbutdotnetstore.specs
             It should_tell_the_renderer_to_display_the_information_retrieved_by_the_query = () =>
                 renderer.received(x => x.render(all_numbers));
 
-            static ViewRepositoryQuery<IEnumerable<SomeType>> query;
             static RenderingGateway renderer;
-            static Request request;
             static IEnumerable<SomeType> all_numbers;
-            static StoreCatalog the_catalog;
             static Request the_request;
         }
 
