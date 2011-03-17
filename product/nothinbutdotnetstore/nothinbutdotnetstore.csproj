@@ -98,6 +98,7 @@
     <Compile Include="web\core\aspnet\WebFormViewFactory.cs" />
     <Compile Include="web\core\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\CommandUrl.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
