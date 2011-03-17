@@ -1,4 +1,6 @@
-﻿namespace nothinbutdotnetstore.web.core
+﻿using System;
+
+namespace nothinbutdotnetstore.web.core
 {
     public class CommandUrl
     {
@@ -6,5 +8,6 @@
         {
             return string.Format("{0}.uk", typeof(Behaviour).Name);
         }
+
     }
 }

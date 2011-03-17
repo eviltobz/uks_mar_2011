@@ -20,6 +20,8 @@ namespace nothinbutdotnetstore.web.core.stubs
                 object item = new Department();
                 return (InputModel) item;
             }
+
+            public string url { get; set; }
         }
     }
 }

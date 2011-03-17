@@ -116,6 +116,7 @@
     <Compile Include="RenderingGatewaySpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
+    <Compile Include="UrlFilterSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewReportModelSpecs.cs" />
     <Compile Include="ViewTheDepartmentsInADepartmentSpecs.cs" />

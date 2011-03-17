@@ -15,13 +15,13 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
-            yield return new DefaultRequestCommand(x => false,
+            yield return new DefaultRequestCommand(x=>UrlFilter.Matches<ViewTheMainDepartmentsInTheStore>(x),
                                                    new ViewTheMainDepartmentsInTheStore());
 
-            yield return new DefaultRequestCommand(x => true,
+            yield return new DefaultRequestCommand(x => UrlFilter.Matches<ViewTheDepartmentsInADepartment>(x),
                                                    new ViewTheDepartmentsInADepartment());
 
-            yield return new DefaultRequestCommand(x => true,
+            yield return new DefaultRequestCommand(x => UrlFilter.Matches<ViewTheProductsInADepartment>(x),
                                                    new ViewTheProductsInADepartment());
         }
     }
