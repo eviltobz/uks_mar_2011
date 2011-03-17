@@ -18,7 +18,7 @@ namespace nothinbutdotnetstore.web.core
             this.token_store = token_store;
             this.payload_builder_factory = payload_builder_factory;
 
-            token_store.add(new KeyValuePair<string, object>("Foo",command_to_run));
+            token_store.register(new KeyValuePair<string, object>("Foo",command_to_run));
         }
 
         public PayloadBuilder<ItemWithProperty> include<ItemWithProperty>(ItemWithProperty some_report_model)
