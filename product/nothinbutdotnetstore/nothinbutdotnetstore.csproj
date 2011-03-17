@@ -119,6 +119,7 @@
     <Compile Include="web\core\Query.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />
+    <Compile Include="web\core\UrlBuilderFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,6 @@
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
-using developwithpassion.specifications.extensions;
 
 namespace nothinbutdotnetstore.specs
 {
@@ -14,22 +13,25 @@ namespace nothinbutdotnetstore.specs
         [Subject(typeof(CommandUrl))]
         public class when_requesting_a_url_for_a_given_command : concern
         {
-            It should_return_the_correct_url =
-                () => { CommandUrl.to_run<SomeBehaviour>().ToString().ShouldEqual("SomeBehaviour.uk"); };
-        }
-
-        public class when_including_a_parameter_to_the_command_url : concern
-        {
             Establish c = () =>
             {
-                some_parameter = new SomeParameter {the_answer = 42};
+                a_url_builder = an<UrlBuilder>();
+                UrlBuilderFactory factory = (x) =>
+                {
+                    x.ShouldEqual(typeof(SomeBehaviour));
+                    return a_url_builder;
+                };
+                change(() => CommandUrl.url_builder_factory).to(factory);
             };
 
-            It should_return_the_correct_url = () => 
-                 CommandUrl.to_run<SomeBehaviour>().include(some_parameter).with_detail(x => x.the_answer)
-                 .ToString().ShouldEqual("SomeBehaviour.uk?the_answer=42");
+            Because b = () =>
+                result = CommandUrl.to_run<SomeBehaviour>();
 
-            static SomeParameter some_parameter;
+            It should_return_a_url_builder_created_using_the_type_of_the_command_requested = () =>
+                result.ShouldEqual(a_url_builder);
+
+            static UrlBuilder a_url_builder;
+            static UrlBuilder result;
         }
 
         class SomeBehaviour : ApplicationBehaviour
