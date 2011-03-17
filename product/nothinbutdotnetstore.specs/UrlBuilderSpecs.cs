@@ -25,7 +25,7 @@ namespace nothinbutdotnetstore.specs
             };
 
             It should_store_a_token_representing_the_command_to_run = () =>
-                token_store.received(x => x.add(Arg<KeyValuePair<string,object>>.Matches(y => y.Value.Equals(typeof(Blah)))));
+                token_store.received(x => x.register(Arg<KeyValuePair<string,object>>.Matches(y => y.Value.Equals(typeof(Blah)))));
 
             static TokenStore token_store;
             static KeyValuePair<string, object> the_token_for_the_command_to_run;

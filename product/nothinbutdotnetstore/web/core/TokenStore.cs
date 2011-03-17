@@ -4,6 +4,6 @@ namespace nothinbutdotnetstore.web.core
 {
     public interface TokenStore : IEnumerable<KeyValuePair<string,object>>
 {
-    void add(KeyValuePair<string, object> token_pair);
+    void register(KeyValuePair<string, object> token_pair);
 }
 }
