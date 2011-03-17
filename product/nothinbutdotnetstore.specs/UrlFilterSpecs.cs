@@ -1,39 +1,49 @@
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
+using developwithpassion.specifications.extensions;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs
 {
     public class UrlFilterSpecs
     {
-        public abstract class concern : Observes<UrlFilter>
+        public abstract class concern : Observes<RequestContainsCommand>
         {
         }
 
-        [Subject(typeof(UrlFilter))]
+        [Subject(typeof(RequestContainsCommand))]
         public class when_checking_if_a_requests_matches_a_behaviour : concern
         {
             Establish ctx = () =>
             {
                 request = an<Request>();
+                provide_a_basic_sut_constructor_argument(typeof(SomeBehaviour));
+                request.Stub(x => x.url).Return(string.Empty);
             };
 
-            It should_return_true_if_the_request_url_contains_the_behaviour_typename_dot_uk =
-                () =>
+            Because b = () =>
+                result = sut.matches(request);
+
+            public class and_the_request_contains_the_behaviour :when_checking_if_a_requests_matches_a_behaviour
+            {
+                Establish c = () =>
                 {
-                    request.url = "SomeBehaviour.uk";
-                    UrlFilter.Matches<SomeBehaviour>(request).ShouldBeTrue();
+                    request.setup(x => x.url).Return("SomeBehaviour.uk");
                 };
 
+                It should_match = () =>
+                    result.ShouldBeTrue();
+            }
 
-            It should_return_false_if_the_request_url_does_not_contain_the_behaviour_typename_dot_uk =
-                () =>
-                {
-                    request.url = "SomeOtherBehaviour.uk";
-                    UrlFilter.Matches<SomeBehaviour>(request).ShouldBeFalse();
-                };
-
+            public class and_the_request_is_not_for_the_behaviour : when_checking_if_a_requests_matches_a_behaviour
+            {
+                It should_not_match = () =>
+                    result.ShouldBeFalse();
+   
+            }
             static Request request;
+            static bool result;
         }
 
         public class SomeBehaviour : ApplicationBehaviour

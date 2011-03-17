@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
-using nothinbutdotnetstore.web.application.model;
-using nothinbutdotnetstore.web.application.stubs;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {
@@ -15,13 +13,13 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
-            yield return new DefaultRequestCommand(x=>UrlFilter.Matches<ViewTheMainDepartmentsInTheStore>(x),
+            yield return new DefaultRequestCommand(IncomingRequest.is_for<ViewTheMainDepartmentsInTheStore>(),
                                                    new ViewTheMainDepartmentsInTheStore());
 
-            yield return new DefaultRequestCommand(x => UrlFilter.Matches<ViewTheDepartmentsInADepartment>(x),
+            yield return new DefaultRequestCommand(IncomingRequest.is_for<ViewTheDepartmentsInADepartment>(),
                                                    new ViewTheDepartmentsInADepartment());
 
-            yield return new DefaultRequestCommand(x => UrlFilter.Matches<ViewTheProductsInADepartment>(x),
+            yield return new DefaultRequestCommand(IncomingRequest.is_for<ViewTheProductsInADepartment>(),
                                                    new ViewTheProductsInADepartment());
         }
     }
