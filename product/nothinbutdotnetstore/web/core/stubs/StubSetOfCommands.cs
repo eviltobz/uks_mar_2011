@@ -15,13 +15,14 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
-            //urls will come in with the format : ahttp://server/CommandName.uk
             yield return new DefaultRequestCommand(x => false,
-                                                   new ViewAReportModel<IEnumerable<Department>>((y) => Stub.with<StubStoreCatalog>().get_the_main_departments()));
+                                                   new ViewTheMainDepartmentsInTheStore());
+
             yield return new DefaultRequestCommand(x => true,
-                                                   new ViewAReportModel<IEnumerable<Product>>((y) => Stub.with<StubStoreCatalog>().get_the_products_in(y.map<Department>())));
+                                                   new ViewTheDepartmentsInADepartment());
+
             yield return new DefaultRequestCommand(x => true,
-                                                   new ViewAReportModel<IEnumerable<Department>>((y) => Stub.with<StubStoreCatalog>().get_the_departments_in(y.map<Department>())));
+                                                   new ViewTheProductsInADepartment());
         }
     }
 }
