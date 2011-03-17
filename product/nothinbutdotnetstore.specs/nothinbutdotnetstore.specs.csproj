@@ -116,6 +116,7 @@
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
+    <Compile Include="ViewGenericApplicationBehaviourSpecs.cs" />
     <Compile Include="ViewTheDepartmentsInADepartmentSpecs.cs" />
     <Compile Include="ViewTheMainDeparmentsInTheStoreSpecs.cs" />
     <Compile Include="ViewTheProductsInADepartmentSpecs.cs" />

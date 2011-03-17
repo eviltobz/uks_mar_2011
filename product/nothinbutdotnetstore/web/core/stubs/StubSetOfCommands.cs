@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 
 namespace nothinbutdotnetstore.web.core.stubs
@@ -19,6 +20,10 @@ namespace nothinbutdotnetstore.web.core.stubs
                                                    new ViewTheMainDepartmentsInTheStore());
             yield return new DefaultRequestCommand(x => true,
                                                    new ViewTheDepartmentsInADepartment());
+
         }
     }
+
+    
+
 }

@@ -11,8 +11,9 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         RenderingGateway rendering_gateway;
         StoreCatalog department_repository;
 
-        public ViewTheDepartmentsInADepartment() : this(new WebFormRenderer(),
-                                                        Stub.with<StubStoreCatalog>())
+        public ViewTheDepartmentsInADepartment()
+            : this(new WebFormRenderer(),
+                   Stub.with<StubStoreCatalog>())
         {
         }
 
