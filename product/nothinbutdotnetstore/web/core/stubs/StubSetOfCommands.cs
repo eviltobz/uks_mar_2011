@@ -15,6 +15,7 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
+            //urls will come in with the format : ahttp://server/CommandName.uk
             yield return new DefaultRequestCommand(x => false,
                                                    new ViewAReportModel<IEnumerable<Department>>((y) => Stub.with<StubStoreCatalog>().get_the_main_departments()));
             yield return new DefaultRequestCommand(x => true,

@@ -108,12 +108,13 @@
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestCriteria.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
+    <Compile Include="web\core\stubs\GetDepartmentsInDepartment.cs" />
     <Compile Include="web\core\stubs\Stub.cs" />
     <Compile Include="web\core\stubs\StubMissingCommandFactory.cs" />
     <Compile Include="web\core\stubs\StubPathResolver.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
-    <Compile Include="web\core\ViewRepositoryQuery.cs" />
+    <Compile Include="web\core\Query.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

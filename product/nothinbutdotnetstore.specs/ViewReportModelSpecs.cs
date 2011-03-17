@@ -3,13 +3,12 @@ using System.Linq;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
-using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
 {
-    public class ViewGenericApplicationBehaviourSpecs
+    public class ViewReportModelSpecs
     {
         public class concern : Observes<ApplicationBehaviour,
                                    ViewAReportModel<IEnumerable<SomeType>>>
@@ -20,14 +19,14 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
-                all_numbers = Enumerable.Range(1, 100).Select(x => new SomeType()).ToList();
+                model = Enumerable.Range(1, 100).Select(x => new SomeType()).ToList();
                 renderer = the_dependency<RenderingGateway>();
                 the_request = an<Request>();
 
-                provide_a_basic_sut_constructor_argument<ViewRepositoryQuery<IEnumerable<SomeType>>>((y) =>
+                provide_a_basic_sut_constructor_argument<Query<IEnumerable<SomeType>>>(y =>
                 {
                     y.ShouldEqual(the_request);
-                    return all_numbers;
+                    return model;
                 });
             };
 
@@ -35,10 +34,10 @@ namespace nothinbutdotnetstore.specs
                 sut.process(the_request);
 
             It should_tell_the_renderer_to_display_the_information_retrieved_by_the_query = () =>
-                renderer.received(x => x.render(all_numbers));
+                renderer.received(x => x.render(model));
 
             static RenderingGateway renderer;
-            static IEnumerable<SomeType> all_numbers;
+            static IEnumerable<SomeType> model;
             static Request the_request;
         }
 
