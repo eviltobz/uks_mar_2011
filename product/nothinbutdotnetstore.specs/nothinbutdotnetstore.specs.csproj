@@ -115,6 +115,7 @@
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RenderingGatewaySpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
+    <Compile Include="spikes\ExpressionTreeSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="UrlFilterSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
