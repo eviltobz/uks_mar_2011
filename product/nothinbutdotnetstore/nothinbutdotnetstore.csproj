@@ -103,6 +103,7 @@
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\IncomingRequest.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\RenderingGateway.cs" />
     <Compile Include="web\core\Request .cs" />
@@ -116,6 +117,7 @@
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\Query.cs" />
+    <Compile Include="web\core\RequestContainsCommand.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
