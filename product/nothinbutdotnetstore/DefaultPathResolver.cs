@@ -4,7 +4,7 @@ namespace nothinbutdotnetstore
 {
     public class DefaultPathResolver: PathResolver
     {
-        readonly UrlRegistry url_registry;
+        UrlRegistry url_registry;
 
         public DefaultPathResolver(UrlRegistry url_registry)
         {

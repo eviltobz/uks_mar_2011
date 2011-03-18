@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
-                token_store = the_dependency<TokenStore>();
+                token_store = the_dependency<TokenStore<string,object>>();
                 property_expression_token_factory = the_dependency<PropertyExpressionTokenFactory>();
                 some_report_model = the_dependency<SomeReportModel>();
 
@@ -39,7 +39,7 @@ namespace nothinbutdotnetstore.specs
 
             static Expression<PropertyAccessor<SomeReportModel, string>> accessor;
             static PayloadBuilder<SomeReportModel> result;
-            static TokenStore token_store;
+            static TokenStore<string,object> token_store;
             static KeyValuePair<string, object> a_token;
             static SomeReportModel some_report_model;
             static PropertyExpressionTokenFactory property_expression_token_factory;

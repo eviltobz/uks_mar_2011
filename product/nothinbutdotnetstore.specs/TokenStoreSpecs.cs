@@ -7,12 +7,12 @@ namespace nothinbutdotnetstore.specs
 {
     public class TokenStoreSpecs
     {
-        public abstract class concern : Observes<TokenStore,
-                                            DefaultTokenStore>
+        public abstract class concern : Observes<TokenStore<string,object>,
+                                            DefaultTokenStore<string,object>>
         {
         }
 
-        [Subject(typeof(DefaultTokenStore))]
+        [Subject(typeof(DefaultTokenStore<,>))]
         public class when_adding_a_new_token_to_the_tokenstore : concern
         {
             Establish c = () => { the_token = new KeyValuePair<string, object>("key_blah", 42); };

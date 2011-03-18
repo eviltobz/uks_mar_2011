@@ -21,19 +21,20 @@ namespace nothinbutdotnetstore.specs
             {
                 the_path = "blah";
                 the_type_to_look_up = typeof(string);
-
-                add_pipeline_behaviour_against_sut(
-                    x => x.downcast_to<DefaultUrlRegistry>().Add(the_type_to_look_up, the_path));
+                paths = new Dictionary<Type,string> {{the_type_to_look_up, the_path}};
+                provide_a_basic_sut_constructor_argument(paths);
             };
 
             Because b = () =>
                 result = sut.get_path(the_type_to_look_up);
 
-            static Type the_type_to_look_up;
+            It should_return_the_registered_path = () => 
+                result.ShouldEqual(the_path);
 
-            It should_return_the_registered_path = () => result.ShouldEqual(the_path);
+            static Type the_type_to_look_up;
             static string the_path;
             static string result;
+            static IDictionary<Type, string> paths;
         }
 
         public class when_getting_the_path_for_a_type_thats_not_registered : concern

@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-
-namespace nothinbutdotnetstore.web.core
+﻿namespace nothinbutdotnetstore.web.core
 {
     public class DefaultRequest : Request
     {
-        IEnumerable<KeyValuePair<string, string>> the_current_context;
-        MappingFactory mapping_factory;
-        public DefaultRequest(IEnumerable<KeyValuePair<string, string>> the_current_context)
+        TokenStore<string, string> payload;
+        MappingGateway mapping_gateway;
+        public string url { private set; get; }
+
+        public DefaultRequest(TokenStore<string, string> payload, MappingGateway mapping_gateway, string raw_request_url)
         {
-            this.the_current_context = the_current_context;
+            this.url = raw_request_url;
+            this.payload = payload;
+            this.mapping_gateway = mapping_gateway;
         }
 
         public InputModel map<InputModel>()
         {
-            return mapping_factory.create_for<InputModel>().map(the_current_context);
-        }
-
-        public string url
-        {
-            get { throw new NotImplementedException(); }
+            return mapping_gateway.map<TokenStore<string, string>, InputModel>(payload);
         }
     }
 }
