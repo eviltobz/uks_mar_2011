@@ -82,8 +82,12 @@
     <Compile Include="DefaultUrlRegistry.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="UrlRegistry.cs" />
+    <Compile Include="utility\containers\basic\BasicDependencyContainer.cs" />
+    <Compile Include="utility\containers\basic\Dependencies.cs" />
+    <Compile Include="utility\containers\basic\DependencyFactory.cs" />
     <Compile Include="utility\containers\Container.cs" />
     <Compile Include="utility\containers\ContainerResolver.cs" />
+    <Compile Include="utility\containers\ContainerUnconfiguredException.cs" />
     <Compile Include="utility\containers\DependencyContainer.cs" />
     <Compile Include="utility\ValueReturningVisitor.cs" />
     <Compile Include="utility\Visitor.cs" />
