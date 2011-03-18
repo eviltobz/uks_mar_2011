@@ -15,12 +15,12 @@ namespace nothinbutdotnetstore.specs
 
             Establish c = () =>
             {
-                dependencies = the_dependency<Dependencies>();
+                dependency_factories = the_dependency<DependencyFactories>();
                 item_factory = an<DependencyFactory>();
-                dependencies.setup(x => x.get_factory_that_can_create(typeof(CreatedItem))).Return(item_factory);
+                dependency_factories.setup(x => x.get_factory_that_can_create(typeof(CreatedItem))).Return(item_factory);
             };
 
-            protected static Dependencies dependencies;
+            protected static DependencyFactories dependency_factories;
             protected static DependencyFactory item_factory;
         }
 

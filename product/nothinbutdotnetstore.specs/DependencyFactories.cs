@@ -7,14 +7,14 @@ using nothinbutdotnetstore.utility.containers.basic;
 
 namespace nothinbutdotnetstore.specs
 {
-    public class DepenciesSpecs
+    public class DepencyFactoriesSpecs
     {
-        public abstract class concern : Observes<Dependencies,
-                                            DefaultDependenciesRegistry>
+        public abstract class concern : Observes<DependencyFactories,
+                                            DefaultDependencyFactories>
         {
         }
 
-        [Subject(typeof(DefaultDependenciesRegistry))]
+        [Subject(typeof(DefaultDependencyFactories))]
         public class when_getting_the_factory_for_a_registered_type_and_it_has_the_factory : concern
         {
             Establish c = () =>

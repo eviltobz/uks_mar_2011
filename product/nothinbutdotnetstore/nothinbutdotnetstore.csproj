@@ -83,8 +83,9 @@
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="UrlRegistry.cs" />
     <Compile Include="utility\containers\basic\BasicDependencyContainer.cs" />
-    <Compile Include="utility\containers\basic\DefaultDependenciesRegistry.cs" />
-    <Compile Include="utility\containers\basic\Dependencies.cs" />
+    <Compile Include="utility\containers\basic\BasicDependencyFactory.cs" />
+    <Compile Include="utility\containers\basic\DefaultDependencyFactories.cs" />
+    <Compile Include="utility\containers\basic\DependencyFactories.cs" />
     <Compile Include="utility\containers\basic\DependencyCreationException.cs" />
     <Compile Include="utility\containers\basic\DependencyFactory.cs" />
     <Compile Include="utility\containers\basic\MissingDependencyFactory.cs" />
