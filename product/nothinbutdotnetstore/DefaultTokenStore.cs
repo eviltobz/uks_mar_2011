@@ -3,9 +3,9 @@ using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore
 {
-    public class DefaultTokenStore : List<KeyValuePair<string, object>>, TokenStore
+    public class DefaultTokenStore<Key,Value> : List<KeyValuePair<Key, Value>>, TokenStore<Key,Value>
     {
-        public void register(KeyValuePair<string, object> token_pair)
+        public void register(KeyValuePair<Key, Value> token_pair)
         {
             Add(token_pair);
         }

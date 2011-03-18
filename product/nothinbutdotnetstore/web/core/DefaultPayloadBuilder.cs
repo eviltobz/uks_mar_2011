@@ -6,11 +6,11 @@ namespace nothinbutdotnetstore.web.core
 {
     public class DefaultPayloadBuilder<ItemWithProperty> : PayloadBuilder<ItemWithProperty>
     {
-        readonly TokenStore token_store;
+        readonly TokenStore<string,object> token_store;
         readonly ItemWithProperty item_with_property;
         readonly PropertyExpressionTokenFactory token_factory;
 
-        public DefaultPayloadBuilder(TokenStore token_store, ItemWithProperty item_with_property,
+        public DefaultPayloadBuilder(TokenStore<string,object> token_store, ItemWithProperty item_with_property,
                                      PropertyExpressionTokenFactory token_factory)
         {
             this.token_store = token_store;

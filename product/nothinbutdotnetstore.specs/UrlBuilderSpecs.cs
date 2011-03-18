@@ -22,13 +22,13 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 provide_a_basic_sut_constructor_argument(typeof(Blah));
-                token_store = the_dependency<TokenStore>();
+                token_store = the_dependency<TokenStore<string,object>>();
             };
 
             It should_store_a_token_representing_the_command_to_run = () =>
                 token_store.received(x => x.register(Arg<KeyValuePair<string,object>>.Matches(y => y.Value.Equals(typeof(Blah)))));
 
-            static TokenStore token_store;
+            static TokenStore<string,object> token_store;
             static KeyValuePair<string, object> the_token_for_the_command_to_run;
         }
 
@@ -36,7 +36,7 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
-                token_store = the_dependency<TokenStore>();
+                token_store = the_dependency<TokenStore<string,object>>();
                 the_payload_builder = an<PayloadBuilder<TheReportModel>>();
                 payload_builder_factory = the_dependency<PayloadBuilderFactory>();
                 the_payload_builder = an<PayloadBuilder<TheReportModel>>();
@@ -61,7 +61,7 @@ namespace nothinbutdotnetstore.specs
             static TheReportModel some_report_model;
             static PayloadBuilder<TheReportModel> the_payload_builder;
             static PayloadBuilderFactory payload_builder_factory;
-            static TokenStore token_store;
+            static TokenStore<string,object> token_store;
             static PayloadBuilder<TheReportModel> visited_builder;
         }
 
@@ -71,7 +71,7 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 the_result = "blah";
-                token_store = the_dependency<TokenStore>();
+                token_store = the_dependency<TokenStore<string,object>>();
                 url_formatting_visitor = the_dependency<UrlFormattingVisitor>();
                 all_tokens = Enumerable.Range(1, 100).Select(x => new KeyValuePair<string,object>(x.ToString(), x)).ToList();
 
@@ -90,7 +90,7 @@ namespace nothinbutdotnetstore.specs
 
             static UrlFormattingVisitor url_formatting_visitor;
             static IEnumerable<KeyValuePair<string,object>> all_tokens;
-            static TokenStore token_store;
+            static TokenStore<string,object> token_store;
             static string result;
             static string the_result;
         }

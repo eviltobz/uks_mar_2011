@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetstore.web.core
 {
-    public interface TokenStore : IEnumerable<KeyValuePair<string,object>>
-{
-    void register(KeyValuePair<string, object> token_pair);
-}
+    public interface TokenStore<Key, Value> : IEnumerable<KeyValuePair<Key, Value>>
+    {
+        void register(KeyValuePair<Key, Value> token_pair);
+    }
 }

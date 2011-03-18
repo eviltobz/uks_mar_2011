@@ -1,15 +1,12 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Machine.Specifications;
 using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
+using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
-using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs
-{   
+{
     public class UrlFormattingVisitorSpecs
     {
         public abstract class concern : Observes<UrlFormattingVisitor,
@@ -31,13 +28,9 @@ namespace nothinbutdotnetstore.specs
                 builder.ToString().ShouldEqual(string.Empty);
         }
 
-        
-
-
         [Subject(typeof(DefaultUrlFormattingVistor))]
         public class when_visiting_the_first_item : concern
         {
-
             Establish c = () =>
             {
                 command_name = "anycommand";
@@ -73,10 +66,8 @@ namespace nothinbutdotnetstore.specs
                 sut.process(second_token);
             };
 
-
-            It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () => 
+            It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () =>
                 builder.ToString().ShouldEqual(after_first_token + "?" + key + "=" + value);
-                
 
             static string command_name;
             static KeyValuePair<string, object> first_token;
@@ -98,21 +89,17 @@ namespace nothinbutdotnetstore.specs
                 });
 
                 subsequent_tokens =
-                    Enumerable.Range(1, 5).Select(x => new KeyValuePair<string, object>("key_" + x.ToString(), x)).ToList();
-
+                    Enumerable.Range(1, 5).Select(x => new KeyValuePair<string, object>("key_" + x.ToString(), x)).
+                        ToList();
             };
 
             Because b = () =>
                 subsequent_tokens.ForEach(token => sut.process(token));
 
             It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () => { };
-//                builder.ToString().ShouldEqual(after_first_token + "?" + key + "=" + value);
+            //                builder.ToString().ShouldEqual(after_first_token + "?" + key + "=" + value);
 
             static List<KeyValuePair<string, object>> subsequent_tokens;
         }
-
-
-
-
     }
 }

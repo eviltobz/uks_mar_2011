@@ -25,8 +25,6 @@ namespace nothinbutdotnetstore.specs
             Because b = () =>
                 the_result = sut.get_path_for_view_that_can_display<SomeReportModelType>();
 
-            It should_lookup_the_thing_for_the_model_type_in_the_registry =
-                () => the_registry.received(x => x.get_path(typeof(SomeReportModelType)));
 
             It should_return_the_path_that_the_registry_returns = () =>
                 the_result.ShouldEqual(the_path);

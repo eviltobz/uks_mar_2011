@@ -7,11 +7,11 @@ namespace nothinbutdotnetstore.web.core
     public class DefaultUrlBuilder : UrlBuilder
     {
         PayloadBuilderFactory payload_builder_factory;
-        TokenStore token_store;
+        TokenStore<string,object> token_store;
         UrlFormattingVisitor url_formatting_visitor;
         Type command_to_run;
 
-        public DefaultUrlBuilder(Type command_to_run, PayloadBuilderFactory payload_builder_factory, TokenStore token_store, UrlFormattingVisitor url_formatting_visitor)
+        public DefaultUrlBuilder(Type command_to_run, PayloadBuilderFactory payload_builder_factory, TokenStore<string,object> token_store, UrlFormattingVisitor url_formatting_visitor)
         {
             this.command_to_run = command_to_run;
             this.url_formatting_visitor = url_formatting_visitor;

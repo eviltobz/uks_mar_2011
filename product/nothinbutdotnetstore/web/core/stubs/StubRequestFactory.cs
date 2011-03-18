@@ -10,7 +10,7 @@ namespace nothinbutdotnetstore.web.core.stubs
     {
         public Request create_from(HttpContext the_current_context)
         {
-            return new DefaultRequest(transform(the_current_context));
+            throw new NotImplementedException();
         }
 
         private IEnumerable<KeyValuePair<string, string>> transform(HttpContext context)
