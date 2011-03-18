@@ -1,3 +1,4 @@
+using System;
 using Machine.Specifications;
 using developwithpassion.specifications.rhino;
 using developwithpassion.specifications.extensions;
@@ -43,6 +44,10 @@ namespace nothinbutdotnetstore.specs
 
         public class CreatedItem : DependencyFactory
     {
+        	public object create()
+        	{
+        		throw new NotImplementedException();
+        	}
     }
     }
 
