@@ -5,4 +5,6 @@ namespace nothinbutdotnetstore.web.core
         InputModel map<InputModel>();
         string url { get; }
     }
+
+
 }

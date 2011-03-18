@@ -77,8 +77,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultPathResolver.cs" />
     <Compile Include="DefaultTokenStore.cs" />
+    <Compile Include="DefaultUrlRegistry.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="UrlRegistry.cs" />
     <Compile Include="utility\ValueReturningVisitor.cs" />
     <Compile Include="utility\Visitor.cs" />
     <Compile Include="utility\VisitorExtensions.cs" />
@@ -107,10 +110,15 @@
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
+    <Compile Include="web\core\DefaultPropertyExpressionTokenFactory.cs" />
+    <Compile Include="web\core\DefaultRequest.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\DefaultUrlBuilder.cs" />
+    <Compile Include="web\core\DefaultUrlFormattingVistor.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IncomingRequest.cs" />
+    <Compile Include="web\core\InputModelMapper.cs" />
+    <Compile Include="web\core\MappingFactory.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\PayloadBuilder.cs" />
     <Compile Include="web\core\PayloadBuilderFactory.cs" />
