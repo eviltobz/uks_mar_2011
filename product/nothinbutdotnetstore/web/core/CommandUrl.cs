@@ -1,10 +1,17 @@
-﻿namespace nothinbutdotnetstore.web.core
+﻿using System;
+
+namespace nothinbutdotnetstore.web.core
 {
     public class CommandUrl
     {
-        public static string to_run<Behaviour>() where Behaviour : ApplicationBehaviour
+        public static UrlBuilderFactory url_builder_factory = delegate
         {
-            return string.Format("{0}.uk", typeof(Behaviour).Name);
+            throw new NotImplementedException("This needs to be configured by the startup model");
+        };
+
+        public static UrlBuilder to_run<Behaviour>() where Behaviour : ApplicationBehaviour
+        {
+            return url_builder_factory(typeof(Behaviour));
         }
     }
 }

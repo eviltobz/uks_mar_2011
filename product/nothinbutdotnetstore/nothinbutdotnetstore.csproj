@@ -77,6 +77,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultTokenStore.cs" />
+    <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="utility\ValueReturningVisitor.cs" />
+    <Compile Include="utility\Visitor.cs" />
+    <Compile Include="utility\VisitorExtensions.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewAReportModel.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
@@ -101,10 +106,16 @@
     <Compile Include="web\core\CommandUrl.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultPayloadBuilder.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
+    <Compile Include="web\core\DefaultUrlBuilder.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IncomingRequest.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
+    <Compile Include="web\core\PayloadBuilder.cs" />
+    <Compile Include="web\core\PayloadBuilderFactory.cs" />
+    <Compile Include="web\core\PayloadBuilderVisitor .cs" />
+    <Compile Include="web\core\PropertyAccessor.cs" />
     <Compile Include="web\core\RenderingGateway.cs" />
     <Compile Include="web\core\Request .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
@@ -118,6 +129,11 @@
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\Query.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />
+    <Compile Include="web\core\PropertyExpressionTokenFactory.cs" />
+    <Compile Include="web\core\TokenStore.cs" />
+    <Compile Include="web\core\UrlBuilder.cs" />
+    <Compile Include="web\core\UrlBuilderFactory.cs" />
+    <Compile Include="web\core\UrlFormattingVisitor .cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
