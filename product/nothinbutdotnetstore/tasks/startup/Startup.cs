@@ -1,6 +1,4 @@
 using System;
-using nothinbutdotnetstore.web.core;
-using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
@@ -8,7 +6,8 @@ namespace nothinbutdotnetstore.tasks.startup
     {
         public static void run()
         {
-            CommandUrl.url_builder_factory = Stub.with<StubUrlBuilderFactory>().create;
+            throw new NotImplementedException();
+            //            CommandUrl.url_builder_factory = Stub.with<StubUrlBuilderFactory>().create;
         }
     }
 }

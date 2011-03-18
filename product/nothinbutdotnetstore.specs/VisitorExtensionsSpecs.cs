@@ -1,4 +1,5 @@
  
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
@@ -14,6 +15,25 @@ namespace nothinbutdotnetstore.specs
         public abstract class concern : Observes
         {
 
+        }
+        public class when_visiting_all_of_the_items_in_an_iterator_with_a_dynamic_visitor : concern
+        {
+            Establish c = () =>
+            {
+                all_items = Enumerable.Range(1, 100).ToList();
+                visitor = x => items_visited++;
+            };
+
+            Because b = () =>
+                VisitorExtensions.visit_all_items_using(all_items, visitor);
+
+
+            It should_process_each_item_through_the_visitor = () =>
+                items_visited.ShouldEqual(all_items.Count());
+
+            static IEnumerable<int> all_items;
+            static Action<int> visitor;
+            static int items_visited;
         }
 
         [Subject(typeof(VisitorExtensions))]

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using developwithpassion.specifications.extensions;
@@ -45,17 +46,21 @@ namespace nothinbutdotnetstore.specs
             };
 
             Because b = () =>
-                result = sut.include(some_report_model);
+                result=sut.include(some_report_model, builder => visited_builder = builder);
 
-            It should_return_a_payload_builder_to_work_with_the_model = () =>
-                result.ShouldEqual(the_payload_builder);
+            It should_apply_the_payload_visitor_against_the_created_payload_builder = () =>
+                visited_builder.ShouldEqual(the_payload_builder);
 
+            It should_return_a_new_url_builder = () =>
+                result.ShouldBeAn<DefaultUrlBuilder>().ShouldNotEqual(sut);
+  
 
-            static PayloadBuilder<TheReportModel> result;
+            static UrlBuilder result;
             static TheReportModel some_report_model;
             static PayloadBuilder<TheReportModel> the_payload_builder;
             static PayloadBuilderFactory payload_builder_factory;
             static TokenStore token_store;
+            static PayloadBuilder<TheReportModel> visited_builder;
         }
 
         [Subject(typeof(DefaultUrlBuilder))]
