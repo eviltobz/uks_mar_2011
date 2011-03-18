@@ -84,6 +84,7 @@
     <Compile Include="UrlRegistry.cs" />
     <Compile Include="utility\containers\basic\BasicDependencyContainer.cs" />
     <Compile Include="utility\containers\basic\Dependencies.cs" />
+    <Compile Include="utility\containers\basic\DependencyCreationException.cs" />
     <Compile Include="utility\containers\basic\DependencyFactory.cs" />
     <Compile Include="utility\containers\Container.cs" />
     <Compile Include="utility\containers\ContainerResolver.cs" />

@@ -12,7 +12,15 @@ namespace nothinbutdotnetstore.specs
         public abstract class concern : Observes<DependencyContainer,
                                             BasicDependencyContainer>
         {
-        
+
+            Establish c = () =>
+            {
+                dependencies = the_dependency<Dependencies>();
+                item_factory = an<DependencyFactory>();
+            };
+
+            protected static Dependencies dependencies;
+            protected static DependencyFactory item_factory;
         }
 
         [Subject(typeof(BasicDependencyContainer))]
@@ -20,9 +28,7 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
-                dependencies = the_dependency<Dependencies>();
                 the_created_item = new CreatedItem();
-                item_factory = an<DependencyFactory>();
 
                 dependencies.setup(x => x.get_factory_that_can_create(typeof(CreatedItem))).Return(item_factory);
                 item_factory.setup(x => x.create()).Return(the_created_item);
@@ -38,8 +44,29 @@ namespace nothinbutdotnetstore.specs
 
             static CreatedItem result;
             static CreatedItem the_created_item;
-            static DependencyFactory item_factory;
-            static Dependencies dependencies;
+        }
+
+        public class when_the_factory_for_a_dependency_throws_an_error_on_item_creation : concern
+        {
+            Establish c = () =>
+            {
+                the_inner_exception = new Exception();
+                item_factory.setup(x => x.create()).Throw(the_inner_exception);
+            };
+
+            Because b = () =>
+                catch_exception(() => sut.an<CreatedItem>());
+
+
+            It should_throw_a_dependency_creation_exception_with_access_to_the_underlying_exception = () =>
+            {
+                var item = exception_thrown_by_the_sut.ShouldBeAn<DependencyCreationException>();
+                item.InnerException.ShouldEqual(the_inner_exception);
+                item.type_that_could_not_be_created.ShouldEqual(typeof(CreatedItem));
+            };
+            
+
+            static Exception the_inner_exception;
         }
 
         public class CreatedItem : DependencyFactory
