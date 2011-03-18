@@ -12,11 +12,12 @@ CodeFile="DepartmentBrowser.aspx.cs"
               <%
                   report_model.visit_all_items_using(department =>
                   {
-             %>
+%>
               <tr class="ListItem">
                  <td><a href="<%=CommandUrl.to_run<ViewTheDepartmentsInADepartment>()
-                                            .include(department, builder =>  builder.with_detail(x => x.name)) %>"><%=department.name%></a></td>
+                                            .include(department, builder => builder.with_detail(x => x.name))%>"><%=department.name%></a></td>
            	  </tr>        
-                           <% }%>
+                           <%
+                  });%>
       	    </table>            
 </asp:Content>
