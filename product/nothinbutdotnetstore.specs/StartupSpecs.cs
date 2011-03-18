@@ -2,6 +2,7 @@ using System;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.tasks.startup;
+using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
@@ -18,8 +19,9 @@ namespace nothinbutdotnetstore.specs
             Because b = () =>
                 Startup.run();
 
-            It should_have_initialized_a_url_builder_factory = () =>
-                CommandUrl.url_builder_factory(typeof(SomeCommand));
+            It should_have_configured_the_container = () =>
+                Container.resolve.ShouldNotBeNull();
+
         }
 
         public class SomeCommand : ApplicationBehaviour

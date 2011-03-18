@@ -1,6 +1,8 @@
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
+using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.web.core;
+using developwithpassion.specifications.extensions;
 
 namespace nothinbutdotnetstore.specs
 {
@@ -15,23 +17,27 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
+                the_container = an<DependencyContainer>();
+                ContainerResolver resolver = () => the_container;
                 a_url_builder = an<UrlBuilder>();
                 UrlBuilderFactory factory = (x) =>
                 {
                     x.ShouldEqual(typeof(SomeBehaviour));
                     return a_url_builder;
                 };
-                change(() => CommandUrl.url_builder_factory).to(factory);
+                the_container.setup(x => x.an<UrlBuilderFactory>()).Return(factory);
+                change(() => Container.active_resolver).to(resolver);
             };
 
             Because b = () =>
                 result = CommandUrl.to_run<SomeBehaviour>();
 
-            It should_return_a_url_builder_created_using_the_type_of_the_command_requested = () =>
+            It should_return_the_url_builder_created_by_the_factory = () =>
                 result.ShouldEqual(a_url_builder);
 
             static UrlBuilder a_url_builder;
             static UrlBuilder result;
+            static DependencyContainer the_container;
         }
 
         class SomeBehaviour : ApplicationBehaviour
