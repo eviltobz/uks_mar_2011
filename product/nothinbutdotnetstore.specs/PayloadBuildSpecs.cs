@@ -1,50 +1,51 @@
-using Machine.Specifications;
-using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
-using nothinbutdotnetstore.web.core;
-using Rhino.Mocks;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using developwithpassion.specifications.extensions;
+using developwithpassion.specifications.rhino;
+using Machine.Specifications;
+using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
-{   
+{
     public class PayloadBuildSpecs
     {
-        public abstract class concern : Observes<PayloadBuilder<ReportModel>,
-                                            DefaultPayloadBuilder<ReportModel>>
+        public abstract class concern : Observes<PayloadBuilder<SomeReportModel>,
+                                            DefaultPayloadBuilder<SomeReportModel>>
         {
-        
         }
 
-        [Subject(typeof(DefaultPayloadBuilder<ReportModel>))]
-        public class when_providing_a_property_accessor_pointing_to_potential_payload_information : concern
+        [Subject(typeof(DefaultPayloadBuilder<SomeReportModel>))]
+        public class when_providing_an_expression_to_store_the_details_of : concern
         {
             Establish c = () =>
             {
                 token_store = the_dependency<TokenStore>();
-                report_model = the_dependency<ReportModel>();
-                token_factory = the_dependency<TokenFactory<ReportModel, PropertyType>>();
-                a_token = token_factory(report_model, accessor);
+                some_report_model = the_dependency<SomeReportModel>();
+                property_expression_token_factory = the_dependency<PropertyExpressionTokenFactory>();
+
+                a_token = new KeyValuePair<string, object>();
+                accessor = x => x.name;
+
+                property_expression_token_factory.setup(x => x.create_from(accessor,some_report_model)).Return(a_token);
             };
 
-            Because b = () =>
-            {
-                result = sut.with_detail(accessor);
-            };
+            Because b = () => { result = sut.with_detail(accessor); };
 
-            It should_store_a_token_into_the_token_store = () =>
-            {
-                token_store.received(x => x.register(a_token));
-            };
+            It should_store_the_token_created_by_the_token_factory = () => 
+                token_store.received(x => x.register(a_token)); 
 
-            static PropertyAccessor<ReportModel, PropertyType> accessor;
+            static Expression<PropertyAccessor<SomeReportModel, string>> accessor;
             static string result;
             static TokenStore token_store;
             static KeyValuePair<string, object> a_token;
-            static ReportModel report_model;
-            static TokenFactory<ReportModel, PropertyType> token_factory;
+            static SomeReportModel some_report_model;
+            static PropertyExpressionTokenFactory property_expression_token_factory;
         }
 
-        class PropertyType {}
-        public class ReportModel {}    
+        public class SomeReportModel
+        {
+            public string name { get; set; }
+
+        }
     }
 }
