@@ -9,9 +9,6 @@ namespace nothinbutdotnetstore.utility.containers
             throw new NotImplementedException("This needs to be set by the startup pipeline");
         };
 
-        public static DependencyContainer resolve { get
-        {
-            throw new NotImplementedException(); 
-        } }
+        public static DependencyContainer resolve { get { return active_resolver(); } }
     }
 }
