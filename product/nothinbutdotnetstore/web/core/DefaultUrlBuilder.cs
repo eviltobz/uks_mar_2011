@@ -21,10 +21,10 @@ namespace nothinbutdotnetstore.web.core
             token_store.register(new KeyValuePair<string, object>("Foo",command_to_run));
         }
 
-        public UrlBuilder include<ItemWithProperty>(ItemWithProperty some_report_model, WithDetailBuilder<ItemWithProperty> detail_builder)
+        public UrlBuilder include<ItemWithProperty>(ItemWithProperty some_report_model, PayloadBuilderVisitor<ItemWithProperty> visitor)
         {
-            detail_builder(payload_builder_factory.create_for(some_report_model, token_store));
-            return this;
+            visitor(payload_builder_factory.create_for(some_report_model, token_store));
+            return new DefaultUrlBuilder(command_to_run, payload_builder_factory, token_store, url_formatting_visitor);
         }
 
         public override string ToString()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using developwithpassion.specifications.extensions;
@@ -36,36 +37,32 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 token_store = the_dependency<TokenStore>();
-                payload_builder_factory = the_dependency<PayloadBuilderFactory>();
-
                 the_payload_builder = an<PayloadBuilder<TheReportModel>>();
+                payload_builder_factory = the_dependency<PayloadBuilderFactory>();
+                the_payload_builder = an<PayloadBuilder<TheReportModel>>();
+                payload_builder_factory = the_dependency<PayloadBuilderFactory>();
                 some_report_model = new TheReportModel();
 
-                detail_builder = an<WithDetailBuilder<TheReportModel>>(); // builder => builder.with_detail(y => y.name);
-
-                payload_builder_factory.setup(x => x.create_for(some_report_model, token_store)).Return(
-                    the_payload_builder);
+                payload_builder_factory.setup(x => x.create_for(some_report_model,token_store)).Return(the_payload_builder);
 
             };
 
             Because b = () =>
-                result = sut.include(some_report_model, detail_builder);
+                result=sut.include(some_report_model, builder => visited_builder = builder);
 
-            It should_use_the_with_detail_on_the_payloadbuilder = () =>
-            {
-                detail_builder.received(x => x(the_payload_builder));
-            };
+            It should_apply_the_payload_visitor_against_the_created_payload_builder = () =>
+                visited_builder.ShouldEqual(the_payload_builder);
 
-            It should_return_a_payload_builder_to_work_with_the_model_and_the_with_detail_builder = () =>
-                result.ShouldBeAn<UrlBuilder>();
+            It should_return_a_new_url_builder = () =>
+                result.ShouldBeAn<DefaultUrlBuilder>().ShouldNotEqual(sut);
+  
 
-
-            static WithDetailBuilder<TheReportModel> detail_builder;
             static UrlBuilder result;
             static TheReportModel some_report_model;
             static PayloadBuilder<TheReportModel> the_payload_builder;
             static PayloadBuilderFactory payload_builder_factory;
             static TokenStore token_store;
+            static PayloadBuilder<TheReportModel> visited_builder;
         }
 
         [Subject(typeof(DefaultUrlBuilder))]
@@ -108,7 +105,6 @@ namespace nothinbutdotnetstore.specs
 
         public class TheReportModel
         {
-            public string name;
         }
     }
 }

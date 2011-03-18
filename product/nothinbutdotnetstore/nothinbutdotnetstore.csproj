@@ -114,6 +114,7 @@
     <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\PayloadBuilder.cs" />
     <Compile Include="web\core\PayloadBuilderFactory.cs" />
+    <Compile Include="web\core\PayloadBuilderVisitor .cs" />
     <Compile Include="web\core\PropertyAccessor.cs" />
     <Compile Include="web\core\RenderingGateway.cs" />
     <Compile Include="web\core\Request .cs" />
@@ -129,7 +130,6 @@
     <Compile Include="web\core\Query.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />
     <Compile Include="web\core\PropertyExpressionTokenFactory.cs" />
-    <Compile Include="web\core\stubs\StubUrlBuilderFactory.cs" />
     <Compile Include="web\core\TokenStore.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />
     <Compile Include="web\core\UrlBuilderFactory.cs" />
