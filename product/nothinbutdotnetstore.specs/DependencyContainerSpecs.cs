@@ -46,6 +46,27 @@ namespace nothinbutdotnetstore.specs
             static CreatedItem the_created_item;
         }
 
+
+        public class when_resolving_an_dependency_at_runtime : concern
+        {
+            Establish c = () =>
+            {
+                the_created_item = new CreatedItem();
+
+                item_factory.setup(x => x.create()).Return(the_created_item);
+            };
+
+            Because b = () =>
+                result = sut.an(typeof(CreatedItem));
+
+
+            It should_return_the_instance_created_by_the_dependencies_factory = () =>
+                result.ShouldEqual(the_created_item);
+            
+
+            static object result;
+            static CreatedItem the_created_item;
+        }
         public class when_the_factory_for_a_dependency_throws_an_error_on_item_creation : concern
         {
             Establish c = () =>
