@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultTokenStore.cs" />
+    <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="utility\ValueReturningVisitor.cs" />
     <Compile Include="utility\Visitor.cs" />
     <Compile Include="utility\VisitorExtensions.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="web\core\Query.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />
     <Compile Include="web\core\PropertyExpressionTokenFactory.cs" />
+    <Compile Include="web\core\stubs\StubUrlBuilderFactory.cs" />
     <Compile Include="web\core\TokenStore.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />
     <Compile Include="web\core\UrlBuilderFactory.cs" />

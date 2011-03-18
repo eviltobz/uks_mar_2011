@@ -21,9 +21,9 @@ namespace nothinbutdotnetstore.web.core
             token_store.register(new KeyValuePair<string, object>("Foo",command_to_run));
         }
 
-        public PayloadBuilder<ItemWithProperty> include<ItemWithProperty>(ItemWithProperty some_report_model)
+        public UrlBuilder include<ItemWithProperty>(ItemWithProperty some_report_model)
         {
-            return payload_builder_factory.create_for(some_report_model,token_store);
+            throw new NotImplementedException();
         }
 
         public override string ToString()

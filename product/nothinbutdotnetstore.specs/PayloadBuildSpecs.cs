@@ -20,22 +20,25 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 token_store = the_dependency<TokenStore>();
-                some_report_model = the_dependency<SomeReportModel>();
                 property_expression_token_factory = the_dependency<PropertyExpressionTokenFactory>();
+                some_report_model = the_dependency<SomeReportModel>();
 
                 a_token = new KeyValuePair<string, object>();
                 accessor = x => x.name;
 
-                property_expression_token_factory.setup(x => x.create_from(accessor,some_report_model)).Return(a_token);
+                property_expression_token_factory.setup(x => x.create_from(accessor, some_report_model)).Return(a_token);
             };
 
             Because b = () => { result = sut.with_detail(accessor); };
 
-            It should_store_the_token_created_by_the_token_factory = () => 
-                token_store.received(x => x.register(a_token)); 
+            It should_store_the_token_created_by_the_token_factory = () =>
+                token_store.received(x => x.register(a_token));
+
+            It should_return_a_new_payload_builder_with_the_right_information = () =>
+                result.ShouldBeAn<DefaultPayloadBuilder<SomeReportModel>>().ShouldNotEqual(sut);
 
             static Expression<PropertyAccessor<SomeReportModel, string>> accessor;
-            static string result;
+            static PayloadBuilder<SomeReportModel> result;
             static TokenStore token_store;
             static KeyValuePair<string, object> a_token;
             static SomeReportModel some_report_model;
@@ -45,7 +48,6 @@ namespace nothinbutdotnetstore.specs
         public class SomeReportModel
         {
             public string name { get; set; }
-
         }
     }
 }
