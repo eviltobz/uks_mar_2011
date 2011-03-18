@@ -16,8 +16,7 @@ CodeFile="DepartmentBrowser.aspx.cs"
 %>
               <tr class="ListItem">
                  <td><a href="<%=CommandUrl.to_run<ViewTheDepartmentsInADepartment>()
-                                           .include(department, builder => builder.with_detail(x => x.name))
-                                           .include(department, builder => builder.with_detail(x => x.introduced_into_store_on);
+                                           .include(department, builder => builder.with_detail(x => x.name));
                  })
                            %>"><%= department.name %></a></td>
            	  </tr>        
