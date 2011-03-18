@@ -6,6 +6,7 @@ namespace nothinbutdotnetstore.web.core
     public class DefaultUrlFormattingVistor : UrlFormattingVisitor
     {
         StringBuilder builder;
+        string active_token_separator = "?";
 
         public DefaultUrlFormattingVistor(StringBuilder builder)
         {
@@ -15,16 +16,19 @@ namespace nothinbutdotnetstore.web.core
         public void process(KeyValuePair<string, object> item)
         {
             if(builder.Length == 0)
-                builder.AppendFormat("{0}.uk", item.Value);
+            {
+                builder.AppendFormat("{0}.uk{1}", item.Value,active_token_separator);
+                active_token_separator = "&";
+            }
             else
             {
-                builder.AppendFormat("?{0}={1}", item.Key, item.Value);
+                builder.AppendFormat("{0}={1}{2}", item.Key, item.Value,active_token_separator);
             }
         }
 
         public string get_result()
         {
-            return string.Empty;
+            return builder.ToString();
         }
     }
 }

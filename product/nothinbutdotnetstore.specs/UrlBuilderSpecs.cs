@@ -39,6 +39,8 @@ namespace nothinbutdotnetstore.specs
                 token_store = the_dependency<TokenStore<string,object>>();
                 the_payload_builder = an<PayloadBuilder<TheReportModel>>();
                 payload_builder_factory = the_dependency<PayloadBuilderFactory>();
+                the_payload_builder = an<PayloadBuilder<TheReportModel>>();
+                payload_builder_factory = the_dependency<PayloadBuilderFactory>();
                 some_report_model = new TheReportModel();
 
                 payload_builder_factory.setup(x => x.create_for(some_report_model,token_store)).Return(the_payload_builder);
@@ -51,8 +53,8 @@ namespace nothinbutdotnetstore.specs
             It should_apply_the_payload_visitor_against_the_created_payload_builder = () =>
                 visited_builder.ShouldEqual(the_payload_builder);
 
-            It should_return_a_new_url_builder = () =>
-                result.ShouldBeAn<DefaultUrlBuilder>().ShouldNotEqual(sut);
+            It should_return_the_url_builder = () =>
+                result.ShouldEqual(sut);
   
 
             static UrlBuilder result;
