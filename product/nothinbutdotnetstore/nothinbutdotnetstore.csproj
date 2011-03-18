@@ -107,10 +107,13 @@
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
+    <Compile Include="web\core\DefaultRequest.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\DefaultUrlBuilder.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IncomingRequest.cs" />
+    <Compile Include="web\core\InputModelMapper.cs" />
+    <Compile Include="web\core\MappingFactory.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\PayloadBuilder.cs" />
     <Compile Include="web\core\PayloadBuilderFactory.cs" />
