@@ -109,6 +109,7 @@
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\DefaultUrlBuilder.cs" />
+    <Compile Include="web\core\DefaultUrlFormattingVistor.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IncomingRequest.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
