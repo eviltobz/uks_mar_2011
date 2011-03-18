@@ -7,7 +7,7 @@ using nothinbutdotnetstore.utility.containers.basic;
 
 namespace nothinbutdotnetstore.specs
 {
-    public class DepenciesRegistrySpecs
+    public class DepenciesSpecs
     {
         public abstract class concern : Observes<Dependencies,
                                             DefaultDependenciesRegistry>
@@ -36,6 +36,28 @@ namespace nothinbutdotnetstore.specs
             static DependencyFactory result;
             static DependencyFactory the_registered_factory;
             static IDictionary<Type, DependencyFactory> all_factories;
+        }
+
+        public class when_getting_the_factory_for_a_registered_type_and_it_does_not_have_the_factory: concern
+        {
+            Establish c = () =>
+            {
+                special_case = an<DependencyFactory>();
+                provide_a_basic_sut_constructor_argument<MissingDependencyFactory>(x =>
+                {
+                    x.ShouldEqual(typeof(SqlConnection));
+                    return special_case;
+                });
+            };
+
+            Because b = () =>
+                result = sut.get_factory_that_can_create(typeof(SqlConnection));
+
+            It should_return_the_special_case = () =>
+                result.ShouldEqual(special_case);
+
+            static DependencyFactory result;
+            static DependencyFactory special_case;
         }
     }
 
