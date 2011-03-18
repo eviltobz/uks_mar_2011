@@ -112,6 +112,7 @@
     <Compile Include="BasicHandlerSpecs.cs" />
     <Compile Include="CommandRegistrySpes.cs" />
     <Compile Include="CommandUrlSpecs.cs" />
+    <Compile Include="ContainerSpecs.cs" />
     <Compile Include="PathResolverSpecs.cs" />
     <Compile Include="PayloadBuildSpecs.cs" />
     <Compile Include="PropertyExpressionTokenFactorySpecs.cs" />
