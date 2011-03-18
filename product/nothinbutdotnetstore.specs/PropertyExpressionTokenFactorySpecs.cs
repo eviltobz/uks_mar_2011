@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.specs
             private Establish c = () =>
                                       {
                                           report_model = an<AReportModel>();
-                                          accessor = (aReportModel) =>  aReportModel.name;
+                                          accessor = (aReportModel) => aReportModel.name;
                                           the_key = "name";
                                           the_value = new APropertyType();
                                           report_model.name = the_value;
@@ -35,7 +35,7 @@ namespace nothinbutdotnetstore.specs
                 token = sut.create_from(accessor, report_model);
 
             It should_create_a_token_with_a_key_equal_to_the_accessor_property_name
-                = () => token.Key.ShouldEqual(the_key); 
+                = () => token.Key.ShouldEqual(the_key);
 
 
             It should_create_a_token_with_a_value_equal_to_the_value_of_the_accessor_property_on_the_report_model
@@ -48,15 +48,15 @@ namespace nothinbutdotnetstore.specs
             private static AReportModel report_model;
         }
 
-   internal class AReportModel
-    {
-       public APropertyType name { get; set; }
+        public class AReportModel
+        {
+            public APropertyType name { get; set; }
+        }
+
+        public class APropertyType
+        {
+        }
     }
 
-    internal class APropertyType
-    {
-    }
-    }
 
- 
 }

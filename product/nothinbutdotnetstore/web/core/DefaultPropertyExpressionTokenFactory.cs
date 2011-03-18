@@ -8,7 +8,7 @@ namespace nothinbutdotnetstore.web.core
     {
         public KeyValuePair<string, object> create_from<Item, PropertyType>(Expression<PropertyAccessor<Item, PropertyType>> accessor, Item report_model)
         {
-            throw new NotImplementedException();
+            return new KeyValuePair<string, object>(((MemberExpression)accessor.Body).Member.Name, accessor.Compile()(report_model));
         }
     }
 }
