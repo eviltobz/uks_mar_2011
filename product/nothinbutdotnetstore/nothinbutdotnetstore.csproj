@@ -107,6 +107,160 @@
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
+    <Compile Include="web\core\DefaultRequest.cs" />
+    <Compile Include="web\core\DefaultRequestCommand.cs" />
+    <Compile Include="web\core\DefaultUrlBuilder.cs" />
+    <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\IncomingRequest.cs" />
+    <Compile Include="web\core\InputModelMapper.cs" />
+    <Compile Include="web\core\MappingFactory.cs" />
+    <Compile Include="web\core\MissingCommandFactory.cs" />
+    <Compile Include="web\core\PayloadBuilder.cs" />
+    <Compile Include="web\core\PayloadBuilderFactory.cs" />
+    <Compile Include="web\core\PayloadBuilderVisitor .cs" />
+    <Compile Include="web\core\PropertyAccessor.cs" />
+    <Compile Include="web\core\RenderingGateway.cs" />
+    <Compile Include="web\core\Request .cs" />
+    <Compile Include="web\core\RequestCommand.cs" />
+    <Compile Include="web\core\RequestCriteria.cs" />
+    <Compile Include="web\core\RequestFactory.cs" />
+    <Compile Include="web\core\stubs\GetDepartmentsInDepartment.cs" />
+    <Compile Include="web\core\stubs\Stub.cs" />
+    <Compile Include="web\core\stubs\StubMissingCommandFactory.cs" />
+    <Compile Include="web\core\stubs\StubPathResolver.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
+    <Compile Include="web\core\Query.cs" />
+    <Compile Include="web\core\RequestContainsCommand.cs" />
+    <Compile Include="web\core\PropertyExpressionTokenFactory.cs" />
+    <Compile Include="web\core\TokenStore.cs" />
+    <Compile Include="web\core\UrlBuilder.cs" />
+    <Compile Include="web\core\UrlBuilderFactory.cs" />
+    <Compile Include="web\core\UrlFormattingVisitor .cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{922EF2FE-820B-4ED5-9D64-7D716E135719}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>nothinbutdotnetstore</RootNamespace>
+    <AssemblyName>nothinbutdotnetstore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\artifacts\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultTokenStore.cs" />
+    <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="utility\ValueReturningVisitor.cs" />
+    <Compile Include="utility\Visitor.cs" />
+    <Compile Include="utility\VisitorExtensions.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewAReportModel.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
+    <Compile Include="web\application\model\Department.cs" />
+    <Compile Include="web\application\model\Product.cs" />
+    <Compile Include="web\application\StoreCatalog.cs" />
+    <Compile Include="web\application\stubs\StubStoreCatalog.cs" />
+    <Compile Include="web\core\ApplicationBehaviour.cs" />
+    <Compile Include="web\core\aspnet\BasicViewFor.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\core\aspnet\CurrentContextResolver.cs" />
+    <Compile Include="web\core\aspnet\DefaultWebFormViewFactory.cs" />
+    <Compile Include="web\core\aspnet\PageFactory.cs" />
+    <Compile Include="web\core\aspnet\PathResolver .cs" />
+    <Compile Include="web\core\aspnet\ViewFor.cs" />
+    <Compile Include="web\core\aspnet\WebFormRenderer.cs" />
+    <Compile Include="web\core\aspnet\WebFormViewFactory.cs" />
+    <Compile Include="web\core\BasicHandler.cs" />
+    <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\CommandUrl.cs" />
+    <Compile Include="web\core\DefaultCommandRegistry.cs" />
+    <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultPayloadBuilder.cs" />
     <Compile Include="web\core\DefaultPropertyExpressionTokenFactory.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\DefaultUrlBuilder.cs" />

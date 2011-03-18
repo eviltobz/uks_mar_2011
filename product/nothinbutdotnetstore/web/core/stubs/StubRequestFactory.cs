@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Web;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.application.model;
@@ -8,24 +10,13 @@ namespace nothinbutdotnetstore.web.core.stubs
     {
         public Request create_from(HttpContext the_current_context)
         {
-            return new StubRequest(the_current_context.Request.RawUrl);
+            return new DefaultRequest(transform(the_current_context));
         }
 
-        class StubRequest : Request
+        private IEnumerable<KeyValuePair<string, string>> transform(HttpContext context)
         {
-            public StubRequest(string url)
-            {
-                this.url = url;
-            }
-
-
-            public InputModel map<InputModel>()
-            {
-                object item = new Department();
-                return (InputModel) item;
-            }
-
-            public string url { get; private set; }
+            return new List<KeyValuePair<string, string>>();
         }
     }
+
 }
