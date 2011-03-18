@@ -53,8 +53,8 @@ namespace nothinbutdotnetstore.specs
             It should_apply_the_payload_visitor_against_the_created_payload_builder = () =>
                 visited_builder.ShouldEqual(the_payload_builder);
 
-            It should_return_a_new_url_builder = () =>
-                result.ShouldBeAn<DefaultUrlBuilder>().ShouldNotEqual(sut);
+            It should_return_the_url_builder = () =>
+                result.ShouldEqual(sut);
   
 
             static UrlBuilder result;

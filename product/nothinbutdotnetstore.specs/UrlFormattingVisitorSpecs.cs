@@ -4,6 +4,7 @@ using System.Text;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
+using developwithpassion.specifications.extensions;
 
 namespace nothinbutdotnetstore.specs
 {
@@ -41,14 +42,14 @@ namespace nothinbutdotnetstore.specs
                 sut.process(token);
 
             It should_append_to_the_builder_the_command_name_appended_with_dot_uk = () =>
-                builder.ToString().ShouldEqual(command_name + ".uk");
+                builder.ToString().ShouldStartWith(command_name + ".uk");
 
             static KeyValuePair<string, object> token;
             static string command_name;
         }
 
         [Subject(typeof(DefaultUrlFormattingVistor))]
-        public class when_visiting_two_items : concern
+        public class when_visiting_the_second_item : concern
         {
             Establish c = () =>
             {
@@ -57,22 +58,21 @@ namespace nothinbutdotnetstore.specs
                 key = "anykey";
                 value = "anyValue";
                 second_token = new KeyValuePair<string, object>(key, value);
+                add_pipeline_behaviour_against_sut(x => x.process(first_token));
             };
 
             Because b = () =>
-            {
-                sut.process(first_token);
-                after_first_token = builder.ToString();
                 sut.process(second_token);
-            };
 
             It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () =>
-                builder.ToString().ShouldEqual(after_first_token + "?" + key + "=" + value);
+            {
+                builder.ToString().ShouldStartWith(command_name);
+                builder.ToString().ShouldEndWith("?{0}={1}".format_using(key, value));
+            };
 
             static string command_name;
             static KeyValuePair<string, object> first_token;
             static KeyValuePair<string, object> second_token;
-            static string after_first_token;
             static string key;
             static string value;
         }
@@ -88,18 +88,34 @@ namespace nothinbutdotnetstore.specs
                     x.process(new KeyValuePair<string, object>("first_key", "first_value"));
                 });
 
-                subsequent_tokens =
-                    Enumerable.Range(1, 5).Select(x => new KeyValuePair<string, object>("key_" + x.ToString(), x)).
-                        ToList();
+                subsequent_tokens = Enumerable.Range(1, 5).Select(x => new KeyValuePair<string, object>("key_" + x.ToString(), x));
             };
 
             Because b = () =>
-                subsequent_tokens.ForEach(token => sut.process(token));
+                subsequent_tokens.each(token => sut.process(token));
 
-            It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () => { };
-            //                builder.ToString().ShouldEqual(after_first_token + "?" + key + "=" + value);
+            It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () =>
+                builder.ToString().ShouldContain("&");
 
-            static List<KeyValuePair<string, object>> subsequent_tokens;
+
+            static IEnumerable<KeyValuePair<string, object>> subsequent_tokens;
+        }
+        public class when_returning_a_result : concern
+        {
+            Establish c = () =>
+            {
+                builder.AppendFormat("sdfsdfsdfsdfsdfsdfsdf");
+            };
+
+            Because b = () =>
+                result = sut.get_result();
+
+
+            It should_return_the_result_of_the_builder = () =>
+                result.ShouldEqual(builder.ToString());
+
+
+            static string result;
         }
     }
 }

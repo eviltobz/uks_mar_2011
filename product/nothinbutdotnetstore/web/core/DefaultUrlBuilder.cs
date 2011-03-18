@@ -24,7 +24,7 @@ namespace nothinbutdotnetstore.web.core
         public UrlBuilder include<ItemWithProperty>(ItemWithProperty some_report_model, PayloadBuilderVisitor<ItemWithProperty> visitor)
         {
             visitor(payload_builder_factory.create_for(some_report_model, token_store));
-            return new DefaultUrlBuilder(command_to_run, payload_builder_factory, token_store, url_formatting_visitor);
+            return this;
         }
 
         public override string ToString()
