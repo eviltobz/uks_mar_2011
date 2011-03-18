@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Web;
 
 namespace nothinbutdotnetstore.specs.utility
@@ -19,6 +22,11 @@ namespace nothinbutdotnetstore.specs.utility
         static HttpResponse create_response()
         {
             return new HttpResponse(new StringWriter());
+        }
+
+        public static ConstructorInfo get_the_constructor_on<ItemToCreate>(Expression<Func<ItemToCreate>> ctor)
+        {
+            return ((NewExpression) ctor.Body).Constructor;
         }
     }
 }

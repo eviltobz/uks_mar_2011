@@ -109,6 +109,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomaticDependencyFactorySpecs.cs" />
     <Compile Include="BasicDependencyFactorySpecs.cs" />
     <Compile Include="BasicHandlerSpecs.cs" />
     <Compile Include="CommandRegistrySpes.cs" />

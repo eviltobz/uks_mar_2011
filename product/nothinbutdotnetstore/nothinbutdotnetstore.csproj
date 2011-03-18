@@ -82,8 +82,10 @@
     <Compile Include="DefaultUrlRegistry.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="UrlRegistry.cs" />
+    <Compile Include="utility\containers\basic\AutomaticDependencyFactory.cs" />
     <Compile Include="utility\containers\basic\BasicDependencyContainer.cs" />
     <Compile Include="utility\containers\basic\BasicDependencyFactory.cs" />
+    <Compile Include="utility\containers\basic\ConstructorSelection.cs" />
     <Compile Include="utility\containers\basic\DefaultDependencyFactories.cs" />
     <Compile Include="utility\containers\basic\DependencyFactories.cs" />
     <Compile Include="utility\containers\basic\DependencyCreationException.cs" />
