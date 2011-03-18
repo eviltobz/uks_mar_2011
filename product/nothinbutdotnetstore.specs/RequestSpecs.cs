@@ -20,6 +20,7 @@ namespace nothinbutdotnetstore.specs
                     the_mapped_item = new AnInputModelObject();
                     payload = the_dependency<TokenStore<string, string>>();
                     the_mapper_gateway = the_dependency<MappingGateway>();
+                    provide_a_basic_sut_constructor_argument("some raw url");
 
                     the_mapper_gateway.setup(x => x.map<TokenStore<string, string>, AnInputModelObject>(payload)).Return
                         (the_mapped_item);

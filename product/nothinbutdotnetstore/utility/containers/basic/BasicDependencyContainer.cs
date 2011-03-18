@@ -1,3 +1,5 @@
+using System;
+
 namespace nothinbutdotnetstore.utility.containers.basic
 {
     public class BasicDependencyContainer : DependencyContainer
@@ -11,7 +13,14 @@ namespace nothinbutdotnetstore.utility.containers.basic
 
     	public Dependency an<Dependency>()
     	{
-    		return (Dependency)dependencies.get_factory_that_can_create(typeof(Dependency)).create();
+            try
+            {
+                return (Dependency) dependencies.get_factory_that_can_create(typeof(Dependency)).create();
+            }
+            catch (Exception ex)
+            {
+                throw new DependencyCreationException(typeof(Dependency), ex);
+            }
     	}
     }
 }

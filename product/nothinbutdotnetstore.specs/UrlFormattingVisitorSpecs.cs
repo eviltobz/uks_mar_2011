@@ -67,7 +67,7 @@ namespace nothinbutdotnetstore.specs
             It should_append_to_the_builder_a_question_mark_followed_by_the_key_value_pair = () =>
             {
                 builder.ToString().ShouldStartWith(command_name);
-                builder.ToString().ShouldEndWith("?{0}={1}".format_using(key, value));
+                builder.ToString().ShouldEndWith("?{0}={1}&".format_using(key, value));
             };
 
             static string command_name;
@@ -100,6 +100,8 @@ namespace nothinbutdotnetstore.specs
 
             static IEnumerable<KeyValuePair<string, object>> subsequent_tokens;
         }
+
+        [Subject(typeof(DefaultUrlFormattingVistor))]
         public class when_returning_a_result : concern
         {
             Establish c = () =>

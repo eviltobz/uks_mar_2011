@@ -17,6 +17,7 @@ namespace nothinbutdotnetstore.specs
             {
                 dependencies = the_dependency<Dependencies>();
                 item_factory = an<DependencyFactory>();
+                dependencies.setup(x => x.get_factory_that_can_create(typeof(CreatedItem))).Return(item_factory);
             };
 
             protected static Dependencies dependencies;
@@ -30,7 +31,6 @@ namespace nothinbutdotnetstore.specs
             {
                 the_created_item = new CreatedItem();
 
-                dependencies.setup(x => x.get_factory_that_can_create(typeof(CreatedItem))).Return(item_factory);
                 item_factory.setup(x => x.create()).Return(the_created_item);
             };
 
