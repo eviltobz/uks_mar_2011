@@ -1,42 +1,42 @@
 using System;
-using Machine.Specifications;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
+using Machine.Specifications;
+using nothinbutdotnetstore.utility.containers.basic;
 
 namespace nothinbutdotnetstore.specs
-{   
+{
     public class DepenciesRegistrySpecs
     {
-        public abstract class concern : Observes<DependenciesRegistry,
+        public abstract class concern : Observes<Dependencies,
                                             DefaultDependenciesRegistry>
         {
-        
         }
 
         [Subject(typeof(DefaultDependenciesRegistry))]
-        public class when_getting_the_dependency_for_a_registered_type : concern
+        public class when_getting_the_factory_for_a_registered_type_and_it_has_the_factory : concern
         {
-            Because b = () =>
-                result = sut.get_dependency_for(the_type_to_look_up);
+            Establish c = () =>
+            {
+                the_type_to_look_up = typeof(SqlConnection);
+                the_registered_factory = an<DependencyFactory>();
+                all_factories = new Dictionary<Type, DependencyFactory>();
+                all_factories.Add(the_type_to_look_up, the_registered_factory);
+                provide_a_basic_sut_constructor_argument(all_factories);
+            };
 
-            It should_return_the_registered_dependency = () => { };
+            Because b = () =>
+                result = sut.get_factory_that_can_create(the_type_to_look_up);
+
+            It should_return_the_registered_dependency = () =>
+                result.ShouldEqual(the_registered_factory);
 
             static Type the_type_to_look_up;
-            static object result;
-        }
-
-    }
-
-    public class DefaultDependenciesRegistry : DependenciesRegistry
-    {
-        public object get_dependency_for(Type the_type_to_look_up)
-        {
-            throw new NotImplementedException();
+            static DependencyFactory result;
+            static DependencyFactory the_registered_factory;
+            static IDictionary<Type, DependencyFactory> all_factories;
         }
     }
 
-    public interface DependenciesRegistry
-    {
-        object get_dependency_for(Type the_type_to_look_up);
-    }
 }
