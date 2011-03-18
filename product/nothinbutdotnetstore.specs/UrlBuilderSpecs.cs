@@ -36,22 +36,32 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 token_store = the_dependency<TokenStore>();
-                the_payload_builder = an<PayloadBuilder<TheReportModel>>();
                 payload_builder_factory = the_dependency<PayloadBuilderFactory>();
+
+                the_payload_builder = an<PayloadBuilder<TheReportModel>>();
                 some_report_model = new TheReportModel();
 
-                payload_builder_factory.setup(x => x.create_for(some_report_model,token_store)).Return(the_payload_builder);
+                detail_builder = an<WithDetailBuilder<TheReportModel>>(); // builder => builder.with_detail(y => y.name);
+
+                payload_builder_factory.setup(x => x.create_for(some_report_model, token_store)).Return(
+                    the_payload_builder);
 
             };
 
             Because b = () =>
-                result = sut.include(some_report_model);
+                result = sut.include(some_report_model, detail_builder);
 
-            It should_return_a_payload_builder_to_work_with_the_model = () =>
-                result.ShouldEqual(the_payload_builder);
+            It should_use_the_with_detail_on_the_payloadbuilder = () =>
+            {
+                detail_builder.received(x => x(the_payload_builder));
+            };
+
+            It should_return_a_payload_builder_to_work_with_the_model_and_the_with_detail_builder = () =>
+                result.ShouldBeAn<UrlBuilder>();
 
 
-            static PayloadBuilder<TheReportModel> result;
+            static WithDetailBuilder<TheReportModel> detail_builder;
+            static UrlBuilder result;
             static TheReportModel some_report_model;
             static PayloadBuilder<TheReportModel> the_payload_builder;
             static PayloadBuilderFactory payload_builder_factory;
@@ -98,6 +108,7 @@ namespace nothinbutdotnetstore.specs
 
         public class TheReportModel
         {
+            public string name;
         }
     }
 }

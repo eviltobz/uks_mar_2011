@@ -17,11 +17,12 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         class StubPayloadBuilderFactory : PayloadBuilderFactory
         {
-            public PayloadBuilder<ReportModel> create_for<ReportModel>(ReportModel some_report_model,
-                                                                       TokenStore token_store)
+            public PayloadBuilder<ReportModel> create_for<ReportModel>(ReportModel some_report_model, TokenStore token_store)
             {
                 return new DefaultPayloadBuilder<ReportModel>(token_store, some_report_model,
                                                               new StubExpressionFactory());
+                //return new DefaultPayloadBuilder<ReportModel>(token_store, some_report_model,
+                //                                              detail_builder);
             }
         }
 

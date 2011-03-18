@@ -134,6 +134,7 @@
     <Compile Include="web\core\UrlBuilder.cs" />
     <Compile Include="web\core\UrlBuilderFactory.cs" />
     <Compile Include="web\core\UrlFormattingVisitor .cs" />
+    <Compile Include="web\core\WithDetailBuilder.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
