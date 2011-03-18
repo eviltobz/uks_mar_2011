@@ -262,6 +262,7 @@ build from_ide</PostBuildEvent>
     <Compile Include="PropertyExpressionTokenFactorySpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="TokenStoreSpecs.cs" />
+    <Compile Include="UrlFormattingVisitorSpecs.cs" />
     <Compile Include="VisitorExtensionsSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RenderingGatewaySpecs.cs" />
