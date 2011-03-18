@@ -107,6 +107,7 @@
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
+    <Compile Include="web\core\DefaultPropertyExpressionTokenFactory.cs" />
     <Compile Include="web\core\DefaultRequest.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
     <Compile Include="web\core\DefaultUrlBuilder.cs" />
