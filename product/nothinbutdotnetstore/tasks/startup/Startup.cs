@@ -22,7 +22,8 @@ namespace nothinbutdotnetstore.tasks.startup
 
         static void initialize_core_components()
         {
-            var current_container = new BasicDependencyContainer(new DefaultDependencyFactories(all_factories, missing_factory));
+            var current_container =
+                new BasicDependencyContainer(new DefaultDependencyFactories(all_factories, missing_factory));
             Container.active_resolver = () => current_container;
         }
 
