@@ -1,9 +1,9 @@
 using System.Web;
-using nothinbutdotnetstore.utility;
+using System.Collections.Specialized;
 
 namespace nothinbutdotnetstore.web.core
 {
-    public interface HttpContextTokenStoreMapper : Mapper<HttpContext,TokenStore<string,string>>
+    public interface HttpContextTokenStoreMapper : Mapper<NameValueCollection,TokenStore<string,string>>
     {
         
     }
