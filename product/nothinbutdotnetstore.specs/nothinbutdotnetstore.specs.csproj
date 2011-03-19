@@ -117,6 +117,7 @@
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="DependencyFactories.cs" />
     <Compile Include="DependencyContainerSpecs.cs" />
+    <Compile Include="GreedyConstructorParameterStrategySpecs.cs" />
     <Compile Include="PathResolverSpecs.cs" />
     <Compile Include="PayloadBuildSpecs.cs" />
     <Compile Include="PropertyExpressionTokenFactorySpecs.cs" />
