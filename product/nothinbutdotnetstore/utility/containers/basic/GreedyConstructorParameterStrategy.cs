@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Reflection;
+using System.Linq;
 
 namespace nothinbutdotnetstore.utility.containers.basic
 {
     public class GreedyConstructorParameterStrategy
     {
-        public static ConstructorInfo get_the_greediest_constructor_info<item>()
+        public ConstructorInfo apply_to(Type type_with_constructor)
         {
-            throw new NotImplementedException();
+            return type_with_constructor.GetConstructors().OrderByDescending(x => x.GetParameters().Count()).First();
         }
     }
 }
