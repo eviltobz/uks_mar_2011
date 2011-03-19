@@ -83,6 +83,7 @@
     <Compile Include="utility\Mapper.cs" />
     <Compile Include="utility\PropertyAccessor.cs" />
     <Compile Include="utility\TokenStore.cs" />
+    <Compile Include="web\application\stubs\StubDepartmentMapper.cs" />
     <Compile Include="web\core\ContextToTokenStoreRegistrationVisitor.cs" />
     <Compile Include="web\core\DefaultHttpContextTokenStoreMapper.cs" />
     <Compile Include="web\core\urls\DefaultUrlRegistry.cs" />
