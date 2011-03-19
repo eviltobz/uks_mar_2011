@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.core
 
         public Request create_from(HttpContext the_current_context)
         {
-            return new DefaultRequest(http_context_token_store_mapper.map(the_current_context),
+            return new DefaultRequest(http_context_token_store_mapper.map(the_current_context.Request.Params),
                 mapping_gateway, the_current_context.Request.RawUrl);
         }
     }
