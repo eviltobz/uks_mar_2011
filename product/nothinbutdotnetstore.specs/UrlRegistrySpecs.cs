@@ -63,10 +63,11 @@ namespace nothinbutdotnetstore.specs
                 add_pipeline_behaviour_against_sut(x => x.paths = paths);
             };
 
-            Because b = () => { sut.register_path_to(the_report_model_type, the_path); };
+            Because b = () => 
+                sut.register_path_to(the_report_model_type, the_path);
 
-            It should_add_the_path_to_the_dictionary =
-                () => { paths.ContainsKey(the_report_model_type).ShouldBeTrue(); };
+            It should_add_the_path_to_the_dictionary = () =>
+                paths[the_report_model_type].ShouldEqual(the_path);
 
             static IDictionary<Type, string> paths;
             static string the_path;

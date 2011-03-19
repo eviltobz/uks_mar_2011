@@ -6,7 +6,7 @@ using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.utility.containers.basic;
 using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
-using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.application.model;
 using nothinbutdotnetstore.web.core.aspnet;
 using nothinbutdotnetstore.web.core.frontcontroller;
 using nothinbutdotnetstore.web.core.payloads;
@@ -30,7 +30,14 @@ namespace nothinbutdotnetstore.tasks.startup
 
         static void configure_view_paths()
         {
-            throw new NotImplementedException();
+            var path_registration = current_container.an<PathRegistration>();
+            path_registration.register_path_to(typeof(IEnumerable<Department>),create_view_path("DepartmentBrowser"));
+            path_registration.register_path_to(typeof(IEnumerable<Product>),create_view_path("DepartmentBrowser"));
+        }
+
+        static string create_view_path(string page_name)
+        {
+            return string.Format("~/views/{0}.aspx", page_name);
         }
 
         static void register<TypeOfContract>(TypeOfContract instance)
@@ -57,11 +64,14 @@ namespace nothinbutdotnetstore.tasks.startup
             register<PathResolver, DefaultPathResolver>();
             register<WebFormViewFactory, DefaultWebFormViewFactory>();
             register<RequestFactory, DefaultRequestFactory>();
-            register<UrlRegistry, DefaultUrlRegistry>();
             register<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
             register<CurrentContextResolver>(() => HttpContext.Current);
             register<IEnumerable<RequestCommand>, StubSetOfCommands>();
             register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
+
+            var default_url_registry = new DefaultUrlRegistry();
+            register<UrlRegistry>(default_url_registry);
+            register<PathRegistration>(default_url_registry);
         }
 
         static void initialize_application_behaviours()
