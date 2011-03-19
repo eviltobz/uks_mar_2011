@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Data.Odbc;
 using System.Web;
 using Machine.Specifications;
@@ -31,7 +32,7 @@ namespace nothinbutdotnetstore.specs
                 token_store_from_context_mapper = the_dependency<HttpContextTokenStoreMapper>();
                 the_mapping_gateway = the_dependency<MappingGateway>();
 
-                token_store_from_context_mapper.setup(x => x.map(the_context)).Return(the_payload);
+                token_store_from_context_mapper.setup(x => x.map(the_context.Request.Params)).Return(the_payload);
             };
 
             Because b = () =>
