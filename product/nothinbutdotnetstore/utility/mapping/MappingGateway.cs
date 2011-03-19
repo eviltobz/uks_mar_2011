@@ -1,4 +1,4 @@
-﻿namespace nothinbutdotnetstore.web.core
+﻿namespace nothinbutdotnetstore.utility.mapping
 {
     public interface MappingGateway
     {

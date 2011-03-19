@@ -1,6 +1,8 @@
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
+using nothinbutdotnetstore.utility;
+using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs

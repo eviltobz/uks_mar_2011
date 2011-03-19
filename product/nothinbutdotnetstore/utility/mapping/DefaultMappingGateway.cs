@@ -1,6 +1,7 @@
-using nothinbutdotnetstore.utility.containers;
+﻿using nothinbutdotnetstore.utility.containers;
+using nothinbutdotnetstore.web.core;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.utility.mapping
 {
     public class DefaultMappingGateway : MappingGateway
     {

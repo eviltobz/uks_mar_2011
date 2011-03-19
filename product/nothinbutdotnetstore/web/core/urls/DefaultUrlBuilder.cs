@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using nothinbutdotnetstore.utility;
+using nothinbutdotnetstore.web.core.payloads;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.urls
 {
     public class DefaultUrlBuilder : UrlBuilder
     {

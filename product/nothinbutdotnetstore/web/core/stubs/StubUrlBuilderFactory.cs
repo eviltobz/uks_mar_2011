@@ -1,5 +1,7 @@
 using System;
 using System.Text;
+using nothinbutdotnetstore.web.core.payloads;
+using nothinbutdotnetstore.web.core.urls;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {

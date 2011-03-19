@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.payloads
 {
     public interface PayloadBuilder<ItemWithProperty>
     {

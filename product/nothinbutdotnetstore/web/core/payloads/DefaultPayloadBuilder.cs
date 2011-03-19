@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
-using nothinbutdotnetstore.utility;
+﻿using System.Linq.Expressions;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.payloads
 {
     public class DefaultPayloadBuilder<ItemWithProperty> : PayloadBuilder<ItemWithProperty>
     {

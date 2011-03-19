@@ -1,4 +1,6 @@
-namespace nothinbutdotnetstore.web.core
+using nothinbutdotnetstore.web.core.payloads;
+
+namespace nothinbutdotnetstore.web.core.urls
 {
     public interface UrlBuilder
     {
