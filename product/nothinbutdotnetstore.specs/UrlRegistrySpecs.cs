@@ -14,7 +14,6 @@ namespace nothinbutdotnetstore.specs
         {
         }
 
-
         [Subject(typeof(DefaultUrlRegistry))]
         public class when_getting_the_path_for_a_registered_type : concern
         {
@@ -22,7 +21,7 @@ namespace nothinbutdotnetstore.specs
             {
                 the_path = "blah";
                 the_type_to_look_up = typeof(string);
-                paths = new Dictionary<Type, string> { { the_type_to_look_up, the_path } };
+                paths = new Dictionary<Type, string> {{the_type_to_look_up, the_path}};
                 add_pipeline_behaviour_against_sut(x => x.paths = paths);
             };
 
@@ -45,7 +44,37 @@ namespace nothinbutdotnetstore.specs
                 catch_exception(() => sut.get_path(typeof(string)));
 
             It should_throw_a_no_path_registered_for_type_exeception =
-                () => exception_thrown_by_the_sut.ShouldBeAn<ArgumentException>();
+                () => exception_thrown_by_the_sut.ShouldBeAn<KeyNotFoundException>();
+        }
+
+        public abstract class pathregistrationconcern : Observes<PathRegistration,
+                                                            DefaultUrlRegistry>
+        {
+        }
+
+        [Subject(typeof(DefaultUrlRegistry))]
+        public class when_registering_a_path_for_a_report_model : pathregistrationconcern
+        {
+            Establish c = () =>
+            {
+                the_path = "blahblah";
+                the_report_model_type = typeof(SomeReportModel);
+                paths = new Dictionary<Type, string>();
+                add_pipeline_behaviour_against_sut(x => x.paths = paths);
+            };
+
+            Because b = () => { sut.register_path_to(the_report_model_type, the_path); };
+
+            It should_add_the_path_to_the_dictionary =
+                () => { paths.ContainsKey(the_report_model_type).ShouldBeTrue(); };
+
+            static IDictionary<Type, string> paths;
+            static string the_path;
+            static Type the_report_model_type;
+
+            public class SomeReportModel
+            {
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace nothinbutdotnetstore.web.core.urls
 
         public void register_path_to(Type page_type, string path)
         {
-            throw new NotImplementedException();
+            paths[page_type] = path;
         }
     }
 }
