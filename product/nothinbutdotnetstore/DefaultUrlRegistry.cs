@@ -5,12 +5,7 @@ namespace nothinbutdotnetstore
 {
     public class DefaultUrlRegistry :UrlRegistry
     {
-        IDictionary<Type, string> paths;
-
-        public DefaultUrlRegistry(IDictionary<Type, string> paths)
-        {
-            this.paths = paths;
-        }
+        public IDictionary<Type, string> paths = new Dictionary<Type, string>();
 
         public string get_path(Type type)
         {

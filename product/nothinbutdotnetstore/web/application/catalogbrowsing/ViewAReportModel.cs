@@ -1,5 +1,4 @@
 using nothinbutdotnetstore.web.core;
-using nothinbutdotnetstore.web.core.aspnet;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
@@ -7,12 +6,6 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     {
         RenderingGateway rendering_gateway;
         Query<ReportModel> query;
-
-        public ViewAReportModel(Query<ReportModel> query) : this(new WebFormRenderer(),
-                                                                               query)
-        {
-            this.query = query;
-        }
 
         public ViewAReportModel(RenderingGateway rendering_gateway, Query<ReportModel> query)
         {

@@ -1,8 +1,5 @@
 using nothinbutdotnetstore.web.application.model;
-using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
-using nothinbutdotnetstore.web.core.aspnet;
-using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
@@ -10,12 +7,6 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     {
         RenderingGateway rendering_gateway;
         StoreCatalog department_repository;
-
-        public ViewTheDepartmentsInADepartment()
-            : this(new WebFormRenderer(),
-                   Stub.with<StubStoreCatalog>())
-        {
-        }
 
         public ViewTheDepartmentsInADepartment(RenderingGateway rendering_gateway,
                                                StoreCatalog department_repository)

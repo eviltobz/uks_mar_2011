@@ -125,6 +125,8 @@
     <Compile Include="web\core\CommandUrl.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultRequestFactory.cs" />
+    <Compile Include="web\core\HttpContextTokenStoreMapper.cs" />
     <Compile Include="web\core\payloads\DefaultPayloadBuilder.cs" />
     <Compile Include="web\core\DefaultPropertyExpressionTokenFactory.cs" />
     <Compile Include="web\core\DefaultRequest.cs" />
@@ -147,7 +149,6 @@
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\stubs\Stub.cs" />
     <Compile Include="web\core\stubs\StubMissingCommandFactory.cs" />
-    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\Query.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />

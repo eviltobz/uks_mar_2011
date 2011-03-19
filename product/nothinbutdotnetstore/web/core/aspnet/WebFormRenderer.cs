@@ -1,16 +1,9 @@
-using System.Web;
-
 namespace nothinbutdotnetstore.web.core.aspnet
 {
     public class WebFormRenderer : RenderingGateway
     {
         WebFormViewFactory web_form_view_factory;
         CurrentContextResolver current_context;
-
-        public WebFormRenderer():this(new DefaultWebFormViewFactory(),
-            () => HttpContext.Current)
-        {
-        }
 
         public WebFormRenderer(WebFormViewFactory web_form_view_factory, CurrentContextResolver current_context)
         {

@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Web;
+using System.Web.Compilation;
 using nothinbutdotnetstore.utility;
 using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.utility.containers.basic;
 using nothinbutdotnetstore.utility.mapping;
+using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.aspnet;
 using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.tasks.startup
@@ -25,6 +29,11 @@ namespace nothinbutdotnetstore.tasks.startup
             all_factories.Add(typeof(TypeOfContract), new BasicDependencyFactory(() => instance));
         }
 
+        static void register<TypeOfImplementation>() 
+        {
+            register<TypeOfImplementation,TypeOfImplementation>();
+        }
+
         static void register<TypeOfContract, TypeOfImplementation>() where TypeOfImplementation : TypeOfContract
         {
             all_factories.Add(typeof(TypeOfContract),
@@ -38,7 +47,16 @@ namespace nothinbutdotnetstore.tasks.startup
             register<CommandRegistry, DefaultCommandRegistry>();
             register<IEnumerable<RequestCommand>, StubSetOfCommands>();
             register<MappingGateway,DefaultMappingGateway>();
-            register<RequestFactory,StubRequestFactory>();
+            register<RequestFactory,DefaultRequestFactory>();
+            register<WebFormViewFactory, DefaultWebFormViewFactory>();
+            register<PathResolver,DefaultPathResolver>();
+            register<UrlRegistry,DefaultUrlRegistry>();
+            register<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
+            register<CurrentContextResolver>(() => HttpContext.Current);
+
+            register<ViewTheMainDepartmentsInTheStore>();
+            register<ViewTheDepartmentsInADepartment>();
+            register<ViewTheProductsInADepartment>();
         }
 
         static ConstructorSelection current_strategy(Type item)
