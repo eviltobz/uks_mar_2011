@@ -87,7 +87,7 @@ namespace nothinbutdotnetstore.tasks.startup
             register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
 
             //TODO - If this is the only thing you learn from this week!!!
-            register<ContextToTokenStoreRegistrationVisitor>((heres,the,dll) => dll.register(new KeyValuePair<string,string>(heres,the)));
+            register<ContextToTokenStoreRegistrationVisitor>((heres,the,dll) => dll.register(new KeyValuePair<string,string>(heres,the))); //dll
 
             register<HttpContextTokenStoreMapper,DefaultHttpContextTokenStoreMapper>();
 
