@@ -9,6 +9,7 @@ using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.aspnet;
+using nothinbutdotnetstore.web.core.payloads;
 using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.tasks.startup
@@ -51,6 +52,7 @@ namespace nothinbutdotnetstore.tasks.startup
             register<WebFormViewFactory, DefaultWebFormViewFactory>();
             register<PathResolver,DefaultPathResolver>();
             register<UrlRegistry,DefaultUrlRegistry>();
+            register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
             register<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
             register<CurrentContextResolver>(() => HttpContext.Current);
 

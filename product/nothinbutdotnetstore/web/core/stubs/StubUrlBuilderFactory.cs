@@ -25,10 +25,10 @@ namespace nothinbutdotnetstore.web.core.stubs
                 this.token_store = token_store;
             }
 
-            public PayloadBuilder<ReportModel> create_for<ReportModel>(ReportModel some_report_model,
+            public PayloadBuilder<ReportModel> create_for<ReportModel>(ReportModel report_model,
                                                                        TokenStore<string, object> token_store)
             {
-                return new DefaultPayloadBuilder<ReportModel>(token_store, some_report_model,
+                return new DefaultPayloadBuilder<ReportModel>(token_store, report_model,
                                                               new DefaultPropertyExpressionTokenFactory());
             }
         }
