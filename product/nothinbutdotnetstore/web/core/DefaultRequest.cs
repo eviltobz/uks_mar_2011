@@ -1,12 +1,11 @@
-﻿using nothinbutdotnetstore.utility;
-using nothinbutdotnetstore.utility.mapping;
+﻿using nothinbutdotnetstore.utility.mapping;
 
 namespace nothinbutdotnetstore.web.core
 {
     public class DefaultRequest : Request
     {
-        TokenStore<string, string> payload;
-        MappingGateway mapping_gateway;
+        public TokenStore<string, string> payload;
+        public MappingGateway mapping_gateway;
         public string url { private set; get; }
 
         public DefaultRequest(TokenStore<string, string> payload, MappingGateway mapping_gateway, string raw_request_url)

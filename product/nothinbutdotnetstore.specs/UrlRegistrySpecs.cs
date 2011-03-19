@@ -22,7 +22,7 @@ namespace nothinbutdotnetstore.specs
                 the_path = "blah";
                 the_type_to_look_up = typeof(string);
                 paths = new Dictionary<Type, string> { { the_type_to_look_up, the_path } };
-                provide_a_basic_sut_constructor_argument(paths);
+                add_pipeline_behaviour_against_sut(x => x.paths = paths);
             };
 
             Because b = () =>

@@ -122,6 +122,7 @@
     <Compile Include="PathResolverSpecs.cs" />
     <Compile Include="PayloadBuildSpecs.cs" />
     <Compile Include="PropertyExpressionTokenFactorySpecs.cs" />
+    <Compile Include="RequestFactorySpecs.cs" />
     <Compile Include="RequestSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="TokenStoreSpecs.cs" />
