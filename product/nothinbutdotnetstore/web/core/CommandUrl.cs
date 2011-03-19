@@ -1,4 +1,5 @@
 ﻿using nothinbutdotnetstore.utility.containers;
+using nothinbutdotnetstore.web.core.urls;
 
 namespace nothinbutdotnetstore.web.core
 {

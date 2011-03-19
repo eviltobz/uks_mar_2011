@@ -1,4 +1,7 @@
-﻿namespace nothinbutdotnetstore.web.core
+﻿using nothinbutdotnetstore.utility;
+using nothinbutdotnetstore.utility.mapping;
+
+namespace nothinbutdotnetstore.web.core
 {
     public class DefaultRequest : Request
     {

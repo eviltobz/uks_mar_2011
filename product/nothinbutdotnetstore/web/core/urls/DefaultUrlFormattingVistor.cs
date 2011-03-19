@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.urls
 {
     public class DefaultUrlFormattingVistor : UrlFormattingVisitor
     {

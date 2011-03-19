@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
+using nothinbutdotnetstore.utility;
+using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.application.model;
 
 namespace nothinbutdotnetstore.web.core.stubs

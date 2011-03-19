@@ -5,6 +5,8 @@ using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.payloads;
+using nothinbutdotnetstore.web.core.urls;
 using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs

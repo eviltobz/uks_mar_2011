@@ -5,6 +5,7 @@ using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.core;
 using developwithpassion.specifications.extensions;
+using nothinbutdotnetstore.web.core.urls;
 
 namespace nothinbutdotnetstore.specs
 {

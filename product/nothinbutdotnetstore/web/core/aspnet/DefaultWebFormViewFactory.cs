@@ -1,6 +1,4 @@
 using System.Web;
-using System.Web.Compilation;
-using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.core.aspnet
 {
@@ -8,11 +6,6 @@ namespace nothinbutdotnetstore.web.core.aspnet
     {
         PathResolver path_resolver;
         PageFactory page_factory;
-
-        public DefaultWebFormViewFactory():this(Stub.with<StubPathResolver>(),
-            BuildManager.CreateInstanceFromVirtualPath)
-        {
-        }
 
         public DefaultWebFormViewFactory(PathResolver path_resolver, PageFactory page_factory)
         {

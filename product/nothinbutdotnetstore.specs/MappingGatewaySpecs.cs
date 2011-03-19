@@ -1,7 +1,9 @@
 using System;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
+using nothinbutdotnetstore.utility;
 using nothinbutdotnetstore.utility.containers;
+using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.core;
 using developwithpassion.specifications.extensions;
 
