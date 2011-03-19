@@ -123,6 +123,7 @@
     <Compile Include="web\core\CommandUrl.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultMappingGateway.cs" />
     <Compile Include="web\core\DefaultPayloadBuilder.cs" />
     <Compile Include="web\core\DefaultPropertyExpressionTokenFactory.cs" />
     <Compile Include="web\core\DefaultRequest.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IncomingRequest.cs" />
     <Compile Include="web\core\InputModelMapper.cs" />
+    <Compile Include="web\core\Mapper.cs" />
     <Compile Include="web\core\MappingGateway.cs" />
     <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\PayloadBuilder.cs" />
