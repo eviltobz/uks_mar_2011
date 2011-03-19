@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Compilation;
-using nothinbutdotnetstore.utility;
 using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.utility.containers.basic;
 using nothinbutdotnetstore.utility.mapping;
@@ -22,7 +21,14 @@ namespace nothinbutdotnetstore.tasks.startup
         public static void run()
         {
             initialize_core_components();
-            initialize_everything_else();
+            initialize_front_controller();
+            initialize_application_behaviours();
+            configure_view_paths();
+        }
+
+        static void configure_view_paths()
+        {
+            throw new NotImplementedException();
         }
 
         static void register<TypeOfContract>(TypeOfContract instance)
@@ -30,9 +36,9 @@ namespace nothinbutdotnetstore.tasks.startup
             all_factories.Add(typeof(TypeOfContract), new BasicDependencyFactory(() => instance));
         }
 
-        static void register<TypeOfImplementation>() 
+        static void register<TypeOfImplementation>()
         {
-            register<TypeOfImplementation,TypeOfImplementation>();
+            register<TypeOfImplementation, TypeOfImplementation>();
         }
 
         static void register<TypeOfContract, TypeOfImplementation>() where TypeOfImplementation : TypeOfContract
@@ -42,20 +48,23 @@ namespace nothinbutdotnetstore.tasks.startup
                                                              typeof(TypeOfImplementation), current_container));
         }
 
-        static void initialize_everything_else()
+        static void initialize_front_controller()
         {
             register<FrontController, DefaultFrontController>();
             register<CommandRegistry, DefaultCommandRegistry>();
-            register<IEnumerable<RequestCommand>, StubSetOfCommands>();
-            register<MappingGateway,DefaultMappingGateway>();
-            register<RequestFactory,DefaultRequestFactory>();
+            register<PathResolver, DefaultPathResolver>();
             register<WebFormViewFactory, DefaultWebFormViewFactory>();
-            register<PathResolver,DefaultPathResolver>();
-            register<UrlRegistry,DefaultUrlRegistry>();
-            register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
+            register<RequestFactory, DefaultRequestFactory>();
+            register<UrlRegistry, DefaultUrlRegistry>();
             register<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
             register<CurrentContextResolver>(() => HttpContext.Current);
+            register<IEnumerable<RequestCommand>, StubSetOfCommands>();
+            register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
+            register<MissingCommandFactory>(missing_factory());
+        }
 
+        static void initialize_application_behaviours()
+        {
             register<ViewTheMainDepartmentsInTheStore>();
             register<ViewTheDepartmentsInADepartment>();
             register<ViewTheProductsInADepartment>();
@@ -72,6 +81,7 @@ namespace nothinbutdotnetstore.tasks.startup
                 new BasicDependencyContainer(new DefaultDependencyFactories(all_factories, missing_factory));
             Container.active_resolver = () => current_container;
             register(current_container);
+            register<MappingGateway, DefaultMappingGateway>();
         }
 
         static DependencyFactory missing_factory(Type type_that_has_no_factory)
