@@ -8,8 +8,10 @@ using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.aspnet;
+using nothinbutdotnetstore.web.core.frontcontroller;
 using nothinbutdotnetstore.web.core.payloads;
 using nothinbutdotnetstore.web.core.stubs;
+using nothinbutdotnetstore.web.core.urls;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
@@ -60,7 +62,6 @@ namespace nothinbutdotnetstore.tasks.startup
             register<CurrentContextResolver>(() => HttpContext.Current);
             register<IEnumerable<RequestCommand>, StubSetOfCommands>();
             register<PayloadBuilderFactory, DefaultPayloadBuilderFactory>();
-            register<MissingCommandFactory>(missing_factory());
         }
 
         static void initialize_application_behaviours()
@@ -82,6 +83,7 @@ namespace nothinbutdotnetstore.tasks.startup
             Container.active_resolver = () => current_container;
             register(current_container);
             register<MappingGateway, DefaultMappingGateway>();
+            register<MissingDependencyFactory>(missing_factory);
         }
 
         static DependencyFactory missing_factory(Type type_that_has_no_factory)

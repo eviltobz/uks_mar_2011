@@ -1,6 +1,6 @@
 using System.Web;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.frontcontroller
 {
     public interface RequestFactory
     {

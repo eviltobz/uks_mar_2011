@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
+using nothinbutdotnetstore.web.core.urls;
 
 namespace nothinbutdotnetstore.specs
 {

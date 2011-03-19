@@ -1,6 +1,7 @@
-﻿using nothinbutdotnetstore.utility.mapping;
+﻿using nothinbutdotnetstore.utility;
+using nothinbutdotnetstore.utility.mapping;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.frontcontroller
 {
     public class DefaultRequest : Request
     {

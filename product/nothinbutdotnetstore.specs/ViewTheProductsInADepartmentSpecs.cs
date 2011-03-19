@@ -6,6 +6,7 @@ using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.model;
 using System.Collections.Generic;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.specs
 {

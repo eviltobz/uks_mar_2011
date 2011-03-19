@@ -5,6 +5,7 @@ using developwithpassion.specifications.rhino;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.specs
 {

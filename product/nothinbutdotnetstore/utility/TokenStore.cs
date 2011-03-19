@@ -1,6 +1,6 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.utility
 {
     public interface TokenStore<Key, Value> : IEnumerable<KeyValuePair<Key, Value>>
     {

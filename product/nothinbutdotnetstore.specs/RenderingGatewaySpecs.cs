@@ -5,6 +5,7 @@ using Machine.Specifications;
 using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.aspnet;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.specs
 {

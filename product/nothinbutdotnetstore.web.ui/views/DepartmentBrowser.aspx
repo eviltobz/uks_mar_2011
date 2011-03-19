@@ -5,7 +5,7 @@ CodeFile="DepartmentBrowser.aspx.cs"
  MasterPageFile="Store.master" %>
 <%@ Import Namespace="nothinbutdotnetstore.utility" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.application.catalogbrowsing" %>
-<%@ Import Namespace="nothinbutdotnetstore.web.core" %>
+<%@ Import Namespace="nothinbutdotnetstore.web.core.urls" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            

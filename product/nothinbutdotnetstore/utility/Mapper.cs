@@ -1,4 +1,4 @@
-namespace nothinbutdotnetstore.web.core
+﻿namespace nothinbutdotnetstore.utility
 {
     public interface Mapper<in Input, out Output>
     {

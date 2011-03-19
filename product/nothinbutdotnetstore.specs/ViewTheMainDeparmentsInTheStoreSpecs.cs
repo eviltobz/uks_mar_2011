@@ -6,6 +6,7 @@ using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.application.model;
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.specs
 {   

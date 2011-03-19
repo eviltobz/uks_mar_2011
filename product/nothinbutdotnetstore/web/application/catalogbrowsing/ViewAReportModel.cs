@@ -1,4 +1,5 @@
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {

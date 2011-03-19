@@ -1,7 +1,7 @@
 ﻿using nothinbutdotnetstore.utility.containers;
-using nothinbutdotnetstore.web.core.urls;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.urls
 {
     public class CommandUrl
     {

@@ -4,6 +4,7 @@ using Machine.Specifications;
 using nothinbutdotnetstore.utility;
 using nothinbutdotnetstore.utility.mapping;
 using nothinbutdotnetstore.web.core;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.specs
 {

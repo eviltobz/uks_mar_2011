@@ -3,6 +3,7 @@
 <%@ Master Language="C#" AutoEventWireup="true" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.application.catalogbrowsing" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.core" %>
+<%@ Import Namespace="nothinbutdotnetstore.web.core.urls" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd">
 

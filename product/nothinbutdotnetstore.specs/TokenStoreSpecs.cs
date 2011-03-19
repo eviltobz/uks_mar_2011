@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using developwithpassion.specifications.rhino;
 using Machine.Specifications;
+using nothinbutdotnetstore.utility;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs

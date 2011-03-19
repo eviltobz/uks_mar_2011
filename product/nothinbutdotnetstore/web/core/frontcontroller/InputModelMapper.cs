@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.frontcontroller
 {
     public interface InputModelMapper<InputModel>
     {

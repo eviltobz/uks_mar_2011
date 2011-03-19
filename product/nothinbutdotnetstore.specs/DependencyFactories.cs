@@ -38,7 +38,7 @@ namespace nothinbutdotnetstore.specs
             static IDictionary<Type, DependencyFactory> all_factories;
         }
 
-        public class when_getting_the_factory_for_a_registered_type_and_it_does_not_have_the_factory: concern
+        public class when_getting_the_factory_for_a_registered_type_and_it_does_not_have_the_factory : concern
         {
             Establish c = () =>
             {
@@ -60,5 +60,4 @@ namespace nothinbutdotnetstore.specs
             static DependencyFactory special_case;
         }
     }
-
 }

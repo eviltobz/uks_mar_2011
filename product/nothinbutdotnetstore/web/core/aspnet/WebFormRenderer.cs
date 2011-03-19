@@ -1,3 +1,5 @@
+using nothinbutdotnetstore.web.core.frontcontroller;
+
 namespace nothinbutdotnetstore.web.core.aspnet
 {
     public class WebFormRenderer : RenderingGateway

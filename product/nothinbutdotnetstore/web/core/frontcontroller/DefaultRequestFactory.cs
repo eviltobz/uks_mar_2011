@@ -1,7 +1,7 @@
 using System.Web;
 using nothinbutdotnetstore.utility.mapping;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web.core.frontcontroller
 {
     public class DefaultRequestFactory : RequestFactory
     {

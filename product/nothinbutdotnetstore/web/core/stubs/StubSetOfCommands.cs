@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
+using nothinbutdotnetstore.web.core.frontcontroller;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {

@@ -1,3 +1,5 @@
+using nothinbutdotnetstore.web.core.frontcontroller;
+
 namespace nothinbutdotnetstore.web.core.stubs
 {
     public class StubMissingCommandFactory

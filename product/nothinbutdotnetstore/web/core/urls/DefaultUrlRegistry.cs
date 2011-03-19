@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace nothinbutdotnetstore
+namespace nothinbutdotnetstore.web.core.urls
 {
     public class DefaultUrlRegistry :UrlRegistry,PathRegistration
     {
