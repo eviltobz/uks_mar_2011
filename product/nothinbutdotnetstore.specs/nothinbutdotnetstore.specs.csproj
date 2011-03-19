@@ -118,6 +118,7 @@
     <Compile Include="DependencyFactories.cs" />
     <Compile Include="DependencyContainerSpecs.cs" />
     <Compile Include="GreedyConstructorParameterStrategySpecs.cs" />
+    <Compile Include="HttpContextTokenStoreSpecs.cs" />
     <Compile Include="MappingGatewaySpecs.cs" />
     <Compile Include="PathResolverSpecs.cs" />
     <Compile Include="PayloadBuildSpecs.cs" />
