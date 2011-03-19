@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultPathResolver.cs" />
+    <Compile Include="DefaultPayloadBuilderFactory.cs" />
     <Compile Include="DefaultTokenStore.cs" />
     <Compile Include="DefaultUrlRegistry.cs" />
     <Compile Include="tasks\startup\Startup.cs" />

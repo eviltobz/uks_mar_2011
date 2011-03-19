@@ -121,6 +121,7 @@
     <Compile Include="MappingGatewaySpecs.cs" />
     <Compile Include="PathResolverSpecs.cs" />
     <Compile Include="PayloadBuildSpecs.cs" />
+    <Compile Include="PayloadBuilderFactorySpecs.cs" />
     <Compile Include="PropertyExpressionTokenFactorySpecs.cs" />
     <Compile Include="RequestSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
