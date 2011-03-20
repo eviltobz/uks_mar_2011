@@ -1,0 +1,110 @@
+Day 1
+
+TDA - Tell Dont Ask - movie1.title == movie2.title in movielibrary - making a decision based on a different class' data = bad
+Higlander principle - there can be only 1 :) method/constructor overloads
+EWV - Encapsulate What Varies
+-leads to - DRY - Dont Repeat Yourself
+
+Extension methods for compositional entry points rather than functionality
+
+Favour composition over inheritance
+
+
+
+Day 2
+
+Law Of Demeter - Don't Talk To Strangers - Needs complete violating if implementing a DSL
+
+Differentiating generic classes by generic constraints so one can have extra methods to its type - ping up an extension scoping class with a bunch of extension methods with constraints at the method level instead - see branches on github
+- last class heavy version - https://github.com/eviltobz/ukp_mar_2011/commits/201103151152
+- extension methody one -    https://github.com/eviltobz/ukp_mar_2011/commits/201103151526
+
+Resources:
+Code Katas
+-http://hudsonsc.com/resources/katas
+Hardcore Fancy Maths Tutorial Videos (And A Few Other Things)
+-http://www.khanacademy.org/
+MIT Opencourseware - Lab in software engineering
+-http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-170-laboratory-in-software-engineering-fall-2005/
+iTunes U - Stanford course stuff
+-iTunes
+Developer Habits - Learning How To Learn
+-http://blog.jpboodhoo.com/GettingStartedLearningSomeNewDeveloperHabits.aspx
+-http://blog.developwithpassion.com/2010/12/strategies-for-becoming-a-better-programmer
+Book List
+-http://www.amazon.com/gp/richpub/listmania/byauthor/A3I87PTP778EZ0/ref=cm_pdp_lm_all
+--http://en.wikipedia.org/wiki/SQ3R
+--grasp patterns - http://www.amazon.com/Applying-UML-Patterns-Introduction-Object-Oriented/dp/0131489062/ref=cm_lmf_tit_13
+Brain Games
+http://www.lumosity.com/
+
+Try to do a few mins on code katas and a few mins on lumosity every day.
+
+Lumosity, code, kata, lunch, code, home :)
+
+
+Day 3
+
+Resource:
+Teach Yourself Programming In 10 Years
+-http://norvig.com/21-days.html
+Vi/Vim tutorial (me)
+-http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
+-http://www.unix-manuals.com/tutorials/vi/vi-in-10-1.html
+-http://www.jerrywang.net/vi/
+-http://www.eng.hawaii.edu/Tutor/vi.html
+
+JP's Resharper templates
+bddc - context
+bddb - because
+tc - test case
+
+Testing edge cases - design conventions - components we design can't return null (mebe return null objects) so we don't need to test for null (and only check exceptions if we can handle them). - components that take constructor arguments can't be initialised with null, so don't test for them.  - need tests to verify conventions. (may look at more tomorrow)
+
+Can't design a factory if the type it creates isn't defined. can't define that type until something is using it.
+
+command query separation - split CUD from R in services
+replication/duplication/denormalise good for reporting - view customer details for editting page would be a report in this context.
+
+multiple domainish repositories could be a code smell...
+-part 1 - repository can have multiple different but related domain entites, a few different repos for separate areas - eg storeCatalog contains departments and products.
+
+delegates to pass in httpcontexts or other such types that have runtime issueness for testability > mocking a method rather than a type
+
+
+Day 4
+
+Resource:
+The 4 + 1 View of Software Architecture
+http://www.ics.uci.edu/~michele/Teaching/INF117/Krutchten%204+1View%20SWArch.pdf
+
+Project/Solution structure - build location to a single artifacts folder - simple testability/deploymentication. build scripts can create assemblies different to the solution & project structure
+
+Can a container resolve a delegate? Yes, hurrah :)
+
+investigate implicit operator overloading
+
+
+Day 5 :(
+
+tdd, fight the desire to jump ahead. test the simplest thing first. code to contracts.
+
+reminder - GRASP patterns
+
+good enough is good enough. code must be clean but not necessarily super-optimally perfect
+
+testing is documentation of your thinking (& design)
+
+kdiff - better diff tool than winmerge...
+
+check out evernote
+
+explicit strongly typed dynamic proxies - article by jp on containery cross cutting concerny stuff.
+
+Container responsibilities - 1. factory, 2. lifecycle management, 3. dynamic composition/cross-cutting concerns
+
+
+
+
+tasks
+url encode links - ocp - decorator on url buildy visitor thingy.
